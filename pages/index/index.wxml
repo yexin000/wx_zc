@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="container">
+<view class="index wexui-tabbar">
+  <view class="header-bg tabbar-content" style="background-image:  url( ../images/header-bg.png); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100%"> 
+    <view class="header">
+        <image class="header-logo" src="../images/header-logo.png" />
+    </view>
+    <view class="wexui-searchbox searchinput">
+        <view class="searchbox-input index-searchbox-input">
+            <icon type="search" size="16" />
+            <input type="text" placeholder="搜索零件名称"/>
+        </view>
+    </view>
+    <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="true" autoplay="true" interval="3000" duration="2000"
+          previous-margin="30px" next-margin="30px">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="example-content">
+      <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+          <view class="list-logo">
+              <image style="width:25rpx;" src="../images/list-header.png" />
+          </view>
+          <view class="list-desc">产品应用平台</view>
+      </view>
+      <view class="wexui-grid" style="margin-left:20rpx;margin-right:20rpx;">
+        <view wx:for="{{products}}" wx:for-index="idx" wx:for-item="product">
+          <view class="grid-item"><image src="{{product.img}}" class="grid-item-icon"/><view class="grid-item-label">{{product.text}}</view>
+          <view class="grid-item-des">{{product.des}}</view></view>
+        </view>
+      </view>
+    </view>
+    <view class="example-content">
+      <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+          <view class="list-logo">
+              <image style="width:25rpx;" src="../images/list-header.png" />
+          </view>
+          <view class="list-desc">主要产品类型</view>
+      </view>
+      <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
+        <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
+          <view class="grid-item"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tabbar-footer">
+    <view class="{{tabbar1?'current':''}}" bindtap="tapTabbar1">
+        <image src="/pages/images/home-check.png" wx:if="{{tabbar1}}"/>
+        <image src="/pages/images/home.png" wx:else/>
+    </view>
+    <view class="{{tabbar2?'current':''}}" bindtap="tapTabbar2">
+        <image src="/pages/images/product-check.png" wx:if="{{tabbar2}}"/>
+        <image src="/pages/images/product.png" wx:else/>
+    </view>
+    <view class="{{tabbar3?'current':''}}" bindtap="tapTabbar3">
+        <image src="/pages/images/my-check.png" wx:if="{{tabbar3}}"/>
+        <image src="/pages/images/my.png" wx:else/>
+    </view>
+  </view>
+</view>
+</view>
