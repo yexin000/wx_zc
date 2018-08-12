@@ -162,6 +162,10 @@
   height: 400rpx;
 }
 
+.header-product-bg {
+  height: 200rpx;
+}
+
 .swiper {
   height: 350rpx;
   width: 100%;
@@ -171,4 +175,22 @@
   height: 100%;
   width: 95%;
   border-radius:10px;
+}
+
+.we-header-view {
+  width: 100%;
+  text-align: center;
+}
+
+.we-header-img {
+  width: 90%;
+  height: 300rpx;
+}
+
+.we-title {
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    padding-left: 50rpx;
+    color: #8e8e90;
+    font-size: 32rpx;
 }
