@@ -1,12 +1,42 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/product/product",
+    "pages/we/we",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/train/train"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
+  },
+
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#c60018",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/pages/images/home-check.png",
+        "iconPath": "/pages/images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/pages/images/product-check.png",
+        "iconPath": "/pages/images/product.png",
+        "pagePath": "pages/product/product",
+        "text": "产品"
+      },
+      {
+        "selectedIconPath": "/pages/images/my-check.png",
+        "iconPath": "/pages/images/my.png",
+        "pagePath": "pages/we/we",
+        "text": "我们"
+      }
+    ]
   }
 }

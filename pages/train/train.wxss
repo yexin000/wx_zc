@@ -1,0 +1,3 @@
+/* pages/train/train.wxss */
+@import "../../wexUI/wexUI.wxss";
+@import "../index/index.wxss";

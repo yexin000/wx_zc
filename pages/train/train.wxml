@@ -1,0 +1,58 @@
+<!-- 根据车型搜索页面 -->
+<view class="container">
+  <view class="index wexui-tabbar">
+  <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
+      <view class="wexui-searchbox searchinput">
+          <view class="searchbox-input index-searchbox-input">
+              <icon type="search" size="16" />
+              <input type="text" placeholder="搜索零件名称"/>
+          </view>
+      </view>
+      <view class="example-content">
+        <view class="wexui-tabs">
+            <scroll-view scroll-x="true">
+                <view class="tabs-header">
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='0'?'current':''}}" bindtap="tapTabsDefault" data-id="0">全部</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='1'?'current':''}}" bindtap="tapTabsDefault" data-id="1">客车(动车组)</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='2'?'current':''}}" bindtap="tapTabsDefault" data-id="2">地铁</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='3'?'current':''}}" bindtap="tapTabsDefault" data-id="3">机车</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='4'?'current':''}}" bindtap="tapTabsDefault" data-id="4">轻轨</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='5'?'current':''}}" bindtap="tapTabsDefault" data-id="5">磁浮</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='6'?'current':''}}" bindtap="tapTabsDefault" data-id="6">其他</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="tabs-content">
+                <view wx:if="{{tabIndex == '0'}}">
+                  <view class="example-content">
+                    <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
+                      <view wx:for="{{allproducttypes}}" wx:for-index="idx" wx:for-item="producttype">
+                        <view class="grid-item"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view wx:if="{{tabIndex == '1'}}">内容2</view>
+                <view wx:if="{{tabIndex == '2'}}">内容3</view>
+                <view wx:if="{{tabIndex == '3'}}">内容4</view>
+                <view wx:if="{{tabIndex == '4'}}">内容5</view>
+                <view wx:if="{{tabIndex == '5'}}">内容6</view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
