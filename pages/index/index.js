@@ -128,8 +128,13 @@ Page({
     })
   },
   toSearchPage: function() {
-    wx.navigateTo({
+    /*wx.navigateTo({
       url: '../search/search'
+    })*/
+  },
+  toProductSearch: function () {
+    wx.navigateTo({
+      url: '../productSearch/productSearch'
     })
   },
   toTrainSearch: function(e) {

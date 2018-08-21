@@ -33,7 +33,7 @@
         <view class="wexui-grid" style="margin-left:20rpx;margin-right:20rpx;">
           <view wx:for="{{products}}" wx:for-index="idx" wx:for-item="product">
             <view class="grid-item" bindtap='toTrainSearch' data-traintype="{{product.traintype}}"><image src="{{product.img}}" class="grid-item-icon"/><view class="grid-item-label">{{product.text}}</view>
-            <view class="grid-item-des">{{product.des}}</view></view>
+            </view>
           </view>
         </view>
       </view>
@@ -46,7 +46,7 @@
         </view>
         <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
           <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-            <view class="grid-item"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+            <view class="grid-item" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
           </view>
         </view>
       </view>

@@ -162,6 +162,10 @@
   height: 400rpx;
 }
 
+.productsearch-header-bg {
+  height: 160rpx;
+}
+
 .header-product-bg {
   height: 200rpx;
 }

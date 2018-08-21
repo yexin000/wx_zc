@@ -6,16 +6,36 @@ Page({
    */
   data: {
     currentTab: 0,
-    tabIndex: 0
+    tabIndex: 0,
+    traintypes: [
+      { traintype: '1', text: '客车(动车组)', des: '车型概述' },
+      { traintype: '3', text: '机车', des: '车型概述' },
+      { traintype: '2', text: '地铁', des: '车型概述' },
+      { traintype: '4', text: '轻轨', des: '车型概述' },
+      { traintype: '5', text: '磁浮', des: '车型概述' },
+      { traintype: '6', text: '其他', des: '车型概述' }
+    ],
+    trains: [
+      { traintype: '1', name: 'CRH380D' },
+      { traintype: '1', name: '车型名称' },
+      { traintype: '1', name: '车型名称' },
+      { traintype: '2', name: '车型名称' },
+      { traintype: '2', name: '车型名称' },
+      { traintype: '2', name: '车型名称' },
+      { traintype: '3', name: '车型名称' },
+      { traintype: '3', name: '车型名称' },
+      { traintype: '3', name: '车型名称' },
+      { traintype: '4', name: '车型名称' },
+      { traintype: '4', name: '车型名称' },
+      { traintype: '4', name: '车型名称' },
+      { traintype: '5', name: '车型名称' },
+      { traintype: '5', name: '车型名称' },
+      { traintype: '5', name: '车型名称' },
+      { traintype: '6', name: '车型名称' },
+      { traintype: '6', name: '车型名称' },
+      { traintype: '6', name: '车型名称' }
+    ]
   },
-  traintypes: [
-    { traintype: '1', subtraintype: '0', text: '客车(动车组)', des: '车型概述' },
-    { traintype: '3', text: '机车', des: '车型概述' },
-    { traintype: '2', text: '地铁', des: '车型概述' },
-    { traintype: '4', text: '轻轨', des: '车型概述' },
-    { traintype: '5', text: '磁浮', des: '车型概述' },
-    { traintype: '6', text: '其他', des: '车型概述' }
-  ], 
   tapTabsDefault(e) {
     let id = e.currentTarget.dataset.id;
     this.setData({

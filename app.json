@@ -5,6 +5,8 @@
     "pages/we/we",
     "pages/logs/logs",
     "pages/search/search",
+    "pages/productSearch/productSearch",
+    "pages/productDetail/productDetail",
     "pages/train/train"
   ],
   "window":{

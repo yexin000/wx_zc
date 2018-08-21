@@ -38,16 +38,13 @@ Page({
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype3.png', url: '', text: '连杆组件' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype4.png', url: '', text: '牵引装置' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype5.png', url: '', text: '球铰关节' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype13.png', url: '', text: '橡胶垫' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype14.png', url: '', text: '止挡' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype7.png', url: '', text: '橡胶堆' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype6.png', url: '', text: '锥形簧' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype15.png', url: '', text: 'V形簧' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype7.png', url: '', text: '橡胶堆' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype8.png', url: '', text: '沙漏簧' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype9.png', url: '', text: '风电产品' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype10.png', url: '', text: '线路产品' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype16.png', url: '', text: '悬挂系列' },
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype11.png', url: '', text: '桥建产品' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype9.png', url: '', text: '风电产品' }
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype12.png', url: '', text: '其他' }
     ],
   },
   tapTabsDefault(e) {
@@ -66,6 +63,11 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });
+  },
+  toProductSearch: function () {
+    wx.navigateTo({
+      url: '../productSearch/productSearch'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

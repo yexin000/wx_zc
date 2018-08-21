@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="doc-title h3">{{productName}}</view>
+  <view class="example-content">
+      <view class="wexui-article">
+        <view class="article-section">
+            <view class="article-section-content center">
+                <image class="article-section-image" src="/pages/images/pomian.jpg"></image>
+                <view class="example-title">剖面图</view>
+                <image class="article-section-image" src="/pages/images/shiwu.jpg"></image>
+                <view class="example-title">实物图</view>
+            </view>
+            <view class="wexui-article">
+              <view class="h5">物资编号:0000809　　　　Type No.960999</view>
+              <view class="h5">结构形式：轴箱拉杆式</view>
+              <view class="h5">Structural style：Axle box rod</view>
+            </view>
+            <view class="wexui-article center margin-top-15">
+              <view class="h5">性能参数(Characteristic)</view>
+              <view class="wexui-list">
+                <view class="list-content font-28">外径(External Diameter)　　　　　　　　110mm</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">芯轴长度(Mandrel Length)　　　　　　　　200mm</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">安装长度(Assembiy Length)　　　　　　　　150mm</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">最大荷载(Max Load)　　　　　　　　75kN</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">工作荷载(Work Load)　　　　　　　　40kN</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">径向刚度(Radial Stiffness)　　　　　　　　30kN/mm</view>
+              </view>
+              <view class="wexui-list">
+                <view class="list-content font-28">轴向刚度(Axial Stiffness)　　　　　　　　0.23kN/mm</view>
+              </view>
+            </view>
+            <view class="wexui-article center">
+              <view class="h5">产品描述</view>
+            <view class="article-section">
+                <view class="article-section-content">
+                    <view class="article-section-text">
+                        此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。
+                    </view>
+                </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

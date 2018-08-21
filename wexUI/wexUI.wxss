@@ -244,87 +244,87 @@ icon {
 /*字体大小*/
 
 .font-12 {
-    font-size: 12px;
+    font-size: 12rpx;
 }
 
 .font-13 {
-    font-size: 13px;
+    font-size: 13rpx;
 }
 
 .font-14 {
-    font-size: 14px;
+    font-size: 14rpx;
 }
 
 .font-15 {
-    font-size: 15px;
+    font-size: 15rpx;
 }
 
 .font-16 {
-    font-size: 16px;
+    font-size: 16rpx;
 }
 
 .font-17 {
-    font-size: 17px;
+    font-size: 17rpx;
 }
 
 .font-18 {
-    font-size: 18px;
+    font-size: 18rpx;
 }
 
 .font-19 {
-    font-size: 19px;
+    font-size: 19rpx;
 }
 
 .font-20 {
-    font-size: 20px;
+    font-size: 20rpx;
 }
 
 .font-21 {
-    font-size: 21px;
+    font-size: 21rpx;
 }
 
 .font-22 {
-    font-size: 22px;
+    font-size: 22rpx;
 }
 
 .font-23 {
-    font-size: 23px;
+    font-size: 23rpx;
 }
 
 .font-24 {
-    font-size: 24px;
+    font-size: 24rpx;
 }
 
 .font-25 {
-    font-size: 25px;
+    font-size: 25rpx;
 }
 
 .font-26 {
-    font-size: 26px;
+    font-size: 26rpx;
 }
 
 .font-27 {
-    font-size: 27px;
+    font-size: 27rpx;
 }
 
 .font-28 {
-    font-size: 28px;
+    font-size: 28rpx;
 }
 
 .font-29 {
-    font-size: 29px;
+    font-size: 29rpx;
 }
 
 .font-30 {
-    font-size: 30px;
+    font-size: 30rpx;
 }
 
 .font-31 {
-    font-size: 31px;
+    font-size: 31rpx;
 }
 
 .font-32 {
-    font-size: 32px;
+    font-size: 32rpx;
 }
 
 
@@ -2260,9 +2260,21 @@ icon {
     flex: 1;
 }
 
+.wexui-list .train-list-content {
+    text-align: left;
+    -webkit-flex: 1;
+    flex: 1;
+    padding-left: 20rpx;
+}
+
 .wexui-list .list-desc {
     color: black;
     font-weight: bold;
+}
+
+.wexui-list .train-list-desc {
+    color: #c8c8cd;
+    font-size: 24rpx;
 }
 
 .wexui-list .we-list-desc {
@@ -3819,7 +3831,6 @@ icon {
 
 .tabs-content {
     text-align: center;
-    padding: 20rpx;
     height: auto;
 }
 
@@ -4971,4 +4982,63 @@ icon {
   background:#aaa;
   margin-top: 5rpx;
   margin-bottom: 15rpx;
+}
+
+/**分类栏**/
+.classify{
+  margin-top:100rpx;
+}
+.left-navbar{
+  position:absolute;
+  left:0;
+  width:25%;
+  height:100%;
+  background-color:#f1f1f1;
+  color: #999999;
+  font-size: 32rpx;
+}
+.left-navbar view{
+  height:80rpx;
+  line-height: 80rpx;
+  text-align:center;
+}
+.active{
+  background-color:#c40018;
+  color:white;
+  font-size:32rpx;
+}
+#right{
+  position:absolute;
+  right:0;
+  width:75%;
+  height:90%;
+}
+.img-banner{
+  height:150rpx;
+  width:100%;
+}
+.goods-list{
+  flex-wrap:wrap;
+  margin-top:10rpx;
+  background-color: #f8f8f8;
+}
+.goods-title{
+  width:100%;
+  font-size:24rpx;
+  padding-left:40rpx;
+  color: #9e9e9e;
+}
+.goods{
+  width:150rpx;
+  font-size:14px;
+  margin:15rpx;
+  text-align:center;
+}
+.img{
+  width:140rpx;
+  height:140rpx;
+}
+
+.center {
+  text-align:center;
 }

@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="index wexui-tabbar">
+    <view class="productsearch-header-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;"> 
+      <view class="wexui-searchbox searchinput">
+        <view class="searchbox-input index-searchbox-input">
+          <icon type="search" size="16" />
+          <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+        </view>
+      </view>
+    </view>
+    <view>
+    <!--分类导航栏-->
+    <scroll-view class='left-navbar' scroll-y="true">
+      <view wx:for="{{allproducttypes}}" class="{{ currentTab == index ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index ? 'navbarTap':'' }}" id="{{index}}" data-producttype="{{item.producttype}}">{{item.productname}}</view>
+    </scroll-view>
+    <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
+      <!--商品展示-->
+      <view class="goods-list" wx:for="{{productPropList}}" wx:key="unique">
+        <view class="goods-title">{{item.productPropName}}</view>
+        <view wx:for="{{item.productlist}}" id="{{item.productId}}">
+          <view class="wexui-list list-arrow" bindtap="toProductDetail">
+            <view class="train-list-content font-28">{{item.productName}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  </view>
+  
+</view>
