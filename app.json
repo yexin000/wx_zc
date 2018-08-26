@@ -7,6 +7,7 @@
     "pages/search/search",
     "pages/productSearch/productSearch",
     "pages/productDetail/productDetail",
+    "pages/trainProduct/trainProduct",
     "pages/train/train"
   ],
   "window":{

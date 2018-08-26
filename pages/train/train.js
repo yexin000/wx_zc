@@ -16,24 +16,24 @@ Page({
       { traintype: '6', text: '其他', des: '车型概述' }
     ],
     trains: [
-      { traintype: '1', name: 'CRH380D' },
-      { traintype: '1', name: '车型名称' },
-      { traintype: '1', name: '车型名称' },
-      { traintype: '2', name: '车型名称' },
-      { traintype: '2', name: '车型名称' },
-      { traintype: '2', name: '车型名称' },
-      { traintype: '3', name: '车型名称' },
-      { traintype: '3', name: '车型名称' },
-      { traintype: '3', name: '车型名称' },
-      { traintype: '4', name: '车型名称' },
-      { traintype: '4', name: '车型名称' },
-      { traintype: '4', name: '车型名称' },
-      { traintype: '5', name: '车型名称' },
-      { traintype: '5', name: '车型名称' },
-      { traintype: '5', name: '车型名称' },
-      { traintype: '6', name: '车型名称' },
-      { traintype: '6', name: '车型名称' },
-      { traintype: '6', name: '车型名称' }
+      { traintype: '1', trainId: '1', name: 'CRH380D' },
+      { traintype: '1', trainId: '2', name: '车型名称' },
+      { traintype: '1', trainId: '3', name: '车型名称' },
+      { traintype: '2', trainId: '4', name: '车型名称' },
+      { traintype: '2', trainId: '5', name: '车型名称' },
+      { traintype: '2', trainId: '6', name: '车型名称' },
+      { traintype: '3', trainId: '7', name: '车型名称' },
+      { traintype: '3', trainId: '8', name: '车型名称' },
+      { traintype: '3', trainId: '9', name: '车型名称' },
+      { traintype: '4', trainId: '10', name: '车型名称' },
+      { traintype: '4', trainId: '11', name: '车型名称' },
+      { traintype: '4', trainId: '12', name: '车型名称' },
+      { traintype: '5', trainId: '13', name: '车型名称' },
+      { traintype: '5', trainId: '14', name: '车型名称' },
+      { traintype: '5', trainId: '15', name: '车型名称' },
+      { traintype: '6', trainId: '16', name: '车型名称' },
+      { traintype: '6', trainId: '17', name: '车型名称' },
+      { traintype: '6', trainId: '18', name: '车型名称' }
     ]
   },
   tapTabsDefault(e) {
@@ -52,6 +52,14 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });
+  },
+
+  toTrainProduct: function(e) {
+    var trainId = e.currentTarget.dataset.trainid;
+    var trainName = e.currentTarget.dataset.trainname;
+    wx.navigateTo({
+      url: '../trainProduct/trainProduct?trainId=' + trainId + '&trainName=' + trainName
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -992,6 +992,29 @@ icon {
     border: solid 2rpx #5bc558;
 }
 
+.btn.btn-check {
+    color: #fff;
+    background: #c40018;
+    border: solid 2rpx #c40018;
+    margin-top: 30rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    border-radius:50rpx;
+    width: 50%;
+    line-height: 1.4;
+}
+
+.btn.btn-uncheck {
+    color: #999;
+    background: transparent;
+    border: solid 2rpx #cfcfcf;
+    margin-top: 30rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    border-radius:50rpx;
+    width: 50%;
+    line-height: 1.4;
+}
 
 /*info-按钮*/
 
@@ -1956,6 +1979,7 @@ icon {
     float: left;
     padding: 10px 10px;
     width: 25%;
+    height: 230rpx;
     box-sizing: border-box;
     transition: all 0.2s;
     background-color: white;
@@ -1976,8 +2000,8 @@ icon {
     margin-top: 10px;
     display: block;
     text-align: center;
-    font-size: 26rpx;
-    white-space: nowrap;
+    font-size: 24rpx;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
     overflow: hidden;
     font-weight: bold;
@@ -3607,6 +3631,39 @@ icon {
     transition: all .2s;
 }
 
+.wexui-searchbox .cancel-btn {
+    margin-left: 10rpx;
+    font-size: 28rpx;
+    color: #585858;
+}
+
+.wexui-searchbox .clear-btn {
+    margin-left: 10rpx;
+    font-size: 28rpx;
+    color: #585858;
+}
+
+.wexui-searchbox .label-btn {
+    flex:1;
+    font-weight: bolder;
+    font-size: 28rpx;
+    color: black;
+    text-align: left;
+}
+
+.wexui-searchbox button::after{
+  border: none;
+}
+
+.wexui-searcharea {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    transition: all 0.2s;
+    font-size: 30rpx;
+}
 
 /*
  * 功能：页面展示-弹出层

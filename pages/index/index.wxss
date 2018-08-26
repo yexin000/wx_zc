@@ -32,10 +32,10 @@
 }
 
 .index .header .header-logo {
-    height: 81rpx;
-    width: 216rpx;
+    height: 61rpx;
+    width: 494rpx;
     margin-left: 40rpx;
-    margin-top: 10rpx;
+    margin-top: 30rpx;
 }
 
 .index .header .header-desc {

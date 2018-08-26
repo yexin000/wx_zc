@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="index wexui-tabbar">
+    <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
+      <view class="example-content">
+        <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+          <view class="list-logo">
+              <image style="width:25rpx;" src="../images/list-header.png" />
+          </view>
+          <view class="train-list-desc">{{producttype.productTypeName}}</view>
+        </view>
+        <view class="example-content">
+          <view wx:for="{{productlist}}" wx:for-index="trainIdx" wx:for-item="product">
+            <view wx:if="{{product.productTypeId == producttype.productTypeId}}" class="wexui-list list-arrow">
+              <view class="train-list-content" data-productId="{{product.productId}}"  bindtap="toTrainProduct">{{product.productName}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

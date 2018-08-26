@@ -48,7 +48,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -67,7 +67,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -86,7 +86,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -105,7 +105,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -124,7 +124,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -143,7 +143,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
@@ -162,7 +162,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
                           </view>
                         </view>
                       </view>
