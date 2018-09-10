@@ -15,15 +15,19 @@ Page({
     tabIndex: 0,
     background: [
       { url: '/pages/images/banner1.png'},
-      { url: '/pages/images/banner2.png' }
+      { url: '/pages/images/banner2.png' },
+      { url: '/pages/images/banner3.png' }
     ],
     products: [
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product1.png', traintype: '1', text: '客车(动车组)',des:'车型概述'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product2.png', traintype: '3', text: '机车', des: '车型概述'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product3.png', traintype: '2', text: '地铁', des: '车型概述'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product4.png', traintype: '4', text: '轻轨', des: '车型概述'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product5.png', traintype: '5', text: '磁浮', des: '车型概述'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product6.png', traintype: '6', text: '其他', des: '车型概述'}
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product01.png', traintype: '01', text: '客车(动车组)',des:'车型概述'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product02.png', traintype: '02', text: '机车', des: '车型概述'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product03.png', traintype: '03', text: '地铁', des: '车型概述'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product04.png', traintype: '04', text: 'LRV轻轨', des: '车型概述'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product05.png', traintype: '05', text: '磁悬浮', des: '车型概述'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product06.png', traintype: '06', text: '风电', des: '车型概述' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product07.png', traintype: '07', text: '轨道线路', des: '车型概述' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product08.png', traintype: '08', text: '桥建', des: '车型概述' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/product09.png', traintype: '09', text: '其他', des: '车型概述'}
     ], 
     producttypes: [
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype1.png', url: '', text: '空气弹簧'},

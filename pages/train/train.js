@@ -1,40 +1,15 @@
 // pages/train/train.js
-Page({
+const app = getApp();
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    currentTab: 0,
-    tabIndex: 0,
-    traintypes: [
-      { traintype: '1', text: '客车(动车组)', des: '车型概述' },
-      { traintype: '3', text: '机车', des: '车型概述' },
-      { traintype: '2', text: '地铁', des: '车型概述' },
-      { traintype: '4', text: '轻轨', des: '车型概述' },
-      { traintype: '5', text: '磁浮', des: '车型概述' },
-      { traintype: '6', text: '其他', des: '车型概述' }
-    ],
-    trains: [
-      { traintype: '1', trainId: '1', name: 'CRH380D' },
-      { traintype: '1', trainId: '2', name: '车型名称' },
-      { traintype: '1', trainId: '3', name: '车型名称' },
-      { traintype: '2', trainId: '4', name: '车型名称' },
-      { traintype: '2', trainId: '5', name: '车型名称' },
-      { traintype: '2', trainId: '6', name: '车型名称' },
-      { traintype: '3', trainId: '7', name: '车型名称' },
-      { traintype: '3', trainId: '8', name: '车型名称' },
-      { traintype: '3', trainId: '9', name: '车型名称' },
-      { traintype: '4', trainId: '10', name: '车型名称' },
-      { traintype: '4', trainId: '11', name: '车型名称' },
-      { traintype: '4', trainId: '12', name: '车型名称' },
-      { traintype: '5', trainId: '13', name: '车型名称' },
-      { traintype: '5', trainId: '14', name: '车型名称' },
-      { traintype: '5', trainId: '15', name: '车型名称' },
-      { traintype: '6', trainId: '16', name: '车型名称' },
-      { traintype: '6', trainId: '17', name: '车型名称' },
-      { traintype: '6', trainId: '18', name: '车型名称' }
-    ]
+    currentTab: '00',
+    tabIndex: '00',
+    traintypes: [],
+    trains: []
   },
   tapTabsDefault(e) {
     let id = e.currentTarget.dataset.id;
@@ -65,10 +40,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     var traintype = options.traintype;
     this.setData({
       tabIndex: traintype
     });
+    wx.showLoading({
+      title: "加载中"
+    });
+    wx.request({
+      url: app.globalData.interfaceUrl + 'zc/getTypesAndTrains',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          traintypes: res.data.data.trainTypes
+        });
+        that.setData({
+          trains: res.data.data.trains
+        });
+        console.log(res.data) 
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
 
   /**
