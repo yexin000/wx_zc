@@ -1,4 +1,6 @@
 // pages/we/we.js
+const app = getApp();
+
 Page({
 
   /**
@@ -30,9 +32,87 @@ Page({
       { phonetype: '市场类：工程塑料', phonenum: '86-0731-28445089' },
       { phonetype: '市场类：薄膜市场', phonenum: '86-0731-22534008' },
       { phonetype: '市场类：芳纶市场', phonenum: '86-0731-22837934' }
-    ]
+    ],
+    org: "",
+    name: "",
+    phone: "",
+    email: "",
+    content: ""
   },
+  submitMessage: function(e) {
+    if (!e.detail.value.org) {
+      this.showDialog("请输入单位名称");
+      return;
+    }
+    if (!e.detail.value.name) {
+      this.showDialog("请输入姓名");
+      return;
+    }
+    if (!e.detail.value.phone) {
+      this.showDialog("请输入电话");
+      return;
+    }
+    if (!e.detail.value.email) {
+      this.showDialog("请输入邮箱");
+      return;
+    }
+    if (!e.detail.value.content) {
+      this.showDialog("请输入内容");
+      return;
+    }
 
+    wx.showLoading({
+      title: "加载中"
+    });
+    wx.request({
+      url: app.globalData.interfaceUrl + 'message/save',
+      data: {
+        org: e.detail.value.org,
+        name: e.detail.value.name,
+        phone: e.detail.value.phone,
+        email: e.detail.value.email,
+        content: e.detail.value.content
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (result) {
+        wx.hideLoading();
+        if (result) {
+          if (result.data.errno == 0) {
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 2000
+            })
+          } else if (result.data.errno == 10001) {
+            wx.showToast({
+              title: '抱歉，操作失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '抱歉，操作失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
+  showDialog(content) {
+    wx.showModal({
+      title: "提示",
+      content: content,
+      showCancel: false
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

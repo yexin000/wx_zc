@@ -30,96 +30,32 @@ Page({
       { img: 'https://mlhdkj.com/weixin/sdFile/zc/product09.png', traintype: '09', text: '其他', des: '车型概述'}
     ], 
     producttypes: [
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype1.png', url: '', text: '空气弹簧'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype2.png', url: '', text: '抗侧滚扭杆'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype3.png', url: '', text: '连杆组件'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype4.png', url: '', text: '牵引装置'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype5.png', url: '', text: '球铰关节'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype6.png', url: '', text: '锥形簧'},
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype7.png', url: '', text: '橡胶堆' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype8.png', url: '', text: '沙漏簧' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype20.png', url: '', text: '发电机弹性支撑' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype21.png', url: '', text: '轨道减震器' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype11.png', url: '', text: '桥梁支座' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype12.png', url: '', text: '橡胶支座' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype22.png', url: '', text: '橡胶垫' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype14.png', url: '', text: '止挡' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype15.png', url: '', text: 'V形簧' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype23.png', url: '', text: '其他悬挂' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype24.png', url: '', text: '叠簧式齿轮箱弹性支撑' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype25.png', url: '', text: '轴瓦式齿轮箱弹性支撑' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype26.png', url: '', text: '风电产品' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype27.png', url: '', text: '道岔' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype28.png', url: '', text: '安全装置' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype29.png', url: '', text: '弹性垫板' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype30.png', url: '', text: '套靴' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype31.png', url: '', text: '阻尼器' },
-      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype32.png', url: '', text: '止水产品' }
-    ],
-    awards: [
-      { awardTitle: '国家级  2009-11-10', awardDesc: '一级安全生产标准化企业'},
-      { awardTitle: '国家级  2009-01-11', awardDesc: '中国轨道交通促进联盟理事会专家理事单位' },
-      { awardTitle: '国家级  2007-07-11', awardDesc: '国家高技术产业化示范工程' },
-      { awardTitle: '国家级  2006-03-11', awardDesc: '国家认定企业技术中心' },
-      { awardTitle: '国家级  2004-05-02', awardDesc: '国家火炬计划重点高新企业' },
-      { awardTitle: '国家级  2003-12-03', awardDesc: '博士后科研工作站' },
-      { awardTitle: '省级    2010-12-10', awardDesc: '湖南省2010届文明单位' },
-      { awardTitle: '省级    2009-11-12', awardDesc: '湖南省科学技术进步二等奖' },
-      { awardTitle: '省级    2009-05-17', awardDesc: '湖南省减震降噪材料工程技术研究中心' },
-      { awardTitle: '省级    2008-12-20', awardDesc: '湖南省高新技术企业' },
-      { awardTitle: '省级    2008-12-07', awardDesc: '湖南名牌' }
-    ],
-    phones: [
-      { phonetype: '人资类', phonenum: '86-0731-22837728' },
-      { phonetype: '市场类：铁路机车车辆', phonenum: '86-0731-22884741' },
-      { phonetype: '市场类：高铁、普铁线路产品', phonenum: '86-0731-22837826' },
-      { phonetype: '市场类：风电减振元件', phonenum: '86-0731-22837769' },
-      { phonetype: '市场类：风电叶片', phonenum: '86-0731-22837948' },
-      { phonetype: '市场类：桥梁建设', phonenum: '86-0731-22837719' },
-      { phonetype: '市场类：城轨铁路减振产品', phonenum: '86-0731-28445038' },
-      { phonetype: '市场类：橡塑元件市场', phonenum: '86-0731-28491684' },
-      { phonetype: '市场类：工程塑料', phonenum: '86-0731-28445089' },
-      { phonetype: '市场类：薄膜市场', phonenum: '86-0731-22534008' },
-      { phonetype: '市场类：芳纶市场', phonenum: '86-0731-22837934' }
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype1.png', producttype: '04', text: '空气弹簧'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype2.png', producttype: '05', text: '抗侧滚扭杆'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype3.png', producttype: '06', text: '连杆组件'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype4.png', producttype: '07', text: '牵引装置'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype5.png', producttype: '01', text: '球铰关节'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype6.png', producttype: '09', text: '锥形簧'},
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype7.png', producttype: '08', text: '橡胶堆' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype8.png', producttype: '00', text: '沙漏簧' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype20.png', producttype: '00', text: '发电机弹性支撑' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype21.png', producttype: '00', text: '轨道减震器' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype11.png', producttype: '00', text: '桥梁支座' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype12.png', producttype: '00', text: '橡胶支座' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype22.png', producttype: '02', text: '橡胶垫' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype14.png', producttype: '03', text: '止挡' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype15.png', producttype: '10', text: 'V形簧' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype23.png', producttype: '11', text: '其他悬挂' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype24.png', producttype: '00', text: '叠簧式齿轮箱弹性支撑' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype25.png', producttype: '00', text: '轴瓦式齿轮箱弹性支撑' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype26.png', producttype: '00', text: '风电产品' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype27.png', producttype: '00', text: '道岔' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype28.png', producttype: '00', text: '安全装置' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype29.png', producttype: '00', text: '弹性垫板' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype30.png', producttype: '00', text: '套靴' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype31.png', producttype: '00', text: '阻尼器' },
+      { img: 'https://mlhdkj.com/weixin/sdFile/zc/producttype32.png', producttype: '00', text: '止水产品' }
     ]
-  },
-  tapTabbar1: function (e) {
-    this.setData({
-      tabbar1: true,
-      tabbar2: false,
-      tabbar3: false
-    });
-  },
-  tapTabbar2: function (e) {
-    this.setData({
-      tabbar1: false,
-      tabbar2: true,
-      tabbar3: false
-    });
-  },
-  tapTabbar3: function (e) {
-    this.setData({
-      tabbar1: false,
-      tabbar2: false,
-      tabbar3: true
-    });
-  },
-  tapTabsDefault(e) {
-    let id = e.currentTarget.dataset.id;
-    this.setData({
-      tabIndex: id
-    });
-  },
-  tapTabs(e) {
-    let id = e.currentTarget.dataset.id;
-    this.setData({
-      currentTab: id
-    });
-  },
-  changeSwiper: function (e) {
-    this.setData({
-      currentTab: e.detail.current
-    });
   },
   //事件处理函数
   bindViewTap: function() {
@@ -132,9 +68,10 @@ Page({
       url: '../search/search'
     })
   },
-  toProductSearch: function () {
+  toProductSearch: function (e) {
+    var producttype = e.currentTarget.dataset.producttype;
     wx.navigateTo({
-      url: '../productSearch/productSearch'
+      url: '../productSearch/productSearch?producttype=' + producttype
     })
   },
   toTrainSearch: function(e) {

@@ -5,7 +5,7 @@
       <view class="wexui-searchbox searchinput">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
-              <input type="text" placeholder="搜索零件名称"/>
+              <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
           </view>
       </view>
       <view class="example-content">

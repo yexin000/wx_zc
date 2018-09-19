@@ -4,17 +4,17 @@
     <view class="wexui-searchbox searchinput">
       <view class="searchbox-input index-searchbox-input">
           <icon type="search" size="16" style="left:25%;"/>
-          <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+          <input type="text" value="{{searchText}}" bindinput="bindKeyInput" placeholder="搜索零件名称"/>
       </view>
-      <button class="cancel-btn">取消</button>
+      <button class="cancel-btn" bindtap='toSearchResult'>搜索</button>
     </view>
     <view class="wexui-searchbox searchinput">
       <button class="label-btn">历史搜索</button>
-      <button class="clear-btn">清空历史</button>
+      <button class="clear-btn" bindtap='clearHistory'>清空历史</button>
     </view>
     <view wx:for="{{historyList}}" wx:for-index="idx" wx:for-item="history">
-      <view class="wexui-list" style="background: transparent">
-        <view class="list-content margin-left-15" id="{{history.id}}">{{history.productName}}</view>
+      <view class="wexui-list" style="background: transparent" data-productname="{{history.productName}}" bindtap="selectToSearchResult">
+        <view class="list-content margin-left-15">{{history.productName}}</view>
       </view>
     </view>
     <view class="wexui-searchbox searchinput">
@@ -22,14 +22,15 @@
     </view>
     <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
       <view wx:if="{{idx % 2 == 0}}" class="wexui-searcharea">
-        <button wx:if="{{traintypes[idx].isCheck == 1}}" class="btn btn-check">{{traintypes[idx].traintypeName}}</button>
-        <button wx:else class="btn btn-uncheck">{{traintypes[idx].traintypeName}}</button>
+        <button wx:if="{{traintypes[idx].traintype == checkedTrainType}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx].traintype}}">{{traintypes[idx].traintypeName}}</button>
+        <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx].traintype}}">{{traintypes[idx].traintypeName}}</button>
 
-        <button wx:if="{{(idx + 1) == traintypes.length}}" style="visibility:hidden" class="btn btn-check">{{traintypes[idx + 1].traintypeName}}</button>
-        <button wx:elif="{{traintypes[idx + 1].isCheck == 1}}" class="btn btn-check">{{traintypes[idx + 1].traintypeName}}</button>
-        <button wx:else class="btn btn-uncheck">{{traintypes[idx + 1].traintypeName}}</button>
+        <button wx:if="{{(idx + 1) == traintypes.length}}" style="visibility:hidden" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
+        <button wx:elif="{{traintypes[idx + 1].traintype == checkedTrainType}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
+        <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
       </view>
     </view>
+    <!--
     <view class="wexui-searchbox searchinput">
       <button class="label-btn">外径</button>
     </view>
@@ -54,6 +55,7 @@
           <input type="text" placeholder="最大刚度"/>
       </view>
     </view>
-    <view class="btn btn-success size-big btn-block">立即搜索</view>
+    -->
+    <view class="btn btn-success size-big btn-block" bindtap="toSearchResult">立即搜索</view>
   </view>
 </view>

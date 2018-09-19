@@ -27,8 +27,12 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });
+  }, 
+  toSearchPage: function () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   },
-
   toTrainProduct: function(e) {
     var trainId = e.currentTarget.dataset.trainid;
     var trainName = e.currentTarget.dataset.trainname;

@@ -46,7 +46,7 @@
         </view>
         <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
           <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-            <view class="grid-item" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+            <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
           </view>
         </view>
       </view>

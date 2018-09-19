@@ -2291,6 +2291,29 @@ icon {
     padding-left: 20rpx;
 }
 
+.wexui-list .list-content-searchresult {
+    text-align: left;
+    -webkit-flex: 1;
+    flex: 1;
+    padding-left: 20rpx;
+    font-weight: bolder;
+}
+
+.wexui-list .list-content-searchresult-attr {
+    text-align: left;
+    -webkit-flex: 1;
+    flex: 1;
+    padding-left: 20rpx;
+    font-size: 25rpx;
+    color: #c8c8cd;
+}
+
+.wexui-list .list-desc-searchresult-attr {
+    color: #c8c8cd;
+    font-size: 25rpx;
+}
+
+
 .wexui-list .list-desc {
     color: black;
     font-weight: bold;

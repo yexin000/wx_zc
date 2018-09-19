@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="index wexui-tabbar">
+    <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
+      <view class="wexui-searchbox searchinput">
+          <view class="searchbox-input index-searchbox-input">
+              <icon type="search" size="16" />
+              <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+          </view>
+      </view>
+      <view class="example-content">
+        <view class="wexui-tabs">
+          <scroll-view scroll-x="true">
+              <view class="tabs-header">
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">客车(动车组)</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">机车</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">地铁</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">LRV轻轨</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='05'?'current':''}}" bindtap="tapTabsDefault" data-id="05">磁悬浮</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='06'?'current':''}}" bindtap="tapTabsDefault" data-id="06">风电</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='07'?'current':''}}" bindtap="tapTabsDefault" data-id="07">轨道线路</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='08'?'current':''}}" bindtap="tapTabsDefault" data-id="08">桥建</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='09'?'current':''}}" bindtap="tapTabsDefault" data-id="09">其他</view>
+                  </view>
+              </view>
+          </scroll-view>
+          <view class="tabs-content">
+            <view wx:for="{{typeList}}" wx:for-index="idx" wx:for-item="typeItem">
+              <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+                <view class="list-logo">
+                    <image style="width:25rpx;" src="../images/list-header.png" />
+                </view>
+                <view class="train-list-desc">{{typeItem.typename}}</view>
+              </view>
+              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view wx:if="{{productItem.producttype == typeItem.producttype}}" class="wexui-list list-arrow">
+                  <view class="list-content-searchresult" data-productid="{{productItem.id}}" bindtap="toProductDetail">{{productItem.productname}}</view>
+                </view>
+                <view wx:if="{{productItem.producttype == typeItem.producttype}}"  class="wexui-list">
+                  <view class="list-content-searchresult-attr">物资编号</view>
+                  <view class="list-desc-searchresult-attr">{{productItem.productnum}}</view> 
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

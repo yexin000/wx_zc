@@ -1,10 +1,13 @@
 // pages/productDetail/productDetail.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    productInfo: null,
     productName: '轴箱拉杆橡胶关节(Axle Box Rod Budshing)'
   },
 
@@ -12,7 +15,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    var productId = options.productId;
+    wx.showLoading({
+      title: "加载中"
+    });
+    wx.request({
+      url: app.globalData.interfaceUrl + 'zc/getById',
+      data: {
+        productId: productId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          productInfo: res.data.data.productInfo
+        });
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
 
   /**

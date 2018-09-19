@@ -17,9 +17,9 @@
       <!--商品展示-->
       <view class="goods-list" wx:for="{{productPropList}}" wx:key="unique">
         <view class="goods-title">{{item.productPropName}}</view>
-        <view wx:for="{{item.productlist}}" id="{{item.productId}}">
-          <view class="wexui-list list-arrow" bindtap="toProductDetail">
-            <view class="train-list-content font-28">{{item.productName}}</view>
+        <view wx:for="{{item.productlist}}" id="{{item.id}}">
+          <view class="wexui-list list-arrow" data-productid="{{item.id}}"   bindtap="toProductDetail">
+            <view class="train-list-content font-28">{{item.productname}}</view>
           </view>
         </view>
       </view>

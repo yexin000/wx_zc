@@ -8,6 +8,7 @@
     "pages/productSearch/productSearch",
     "pages/productDetail/productDetail",
     "pages/trainProduct/trainProduct",
+    "pages/searchResult/searchResult",
     "pages/train/train"
   ],
   "window":{

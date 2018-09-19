@@ -1,41 +1,154 @@
 <view class="container">
-  <view class="doc-title h3">{{productName}}</view>
+  <view class="doc-title h3">{{productInfo.productname}}</view>
   <view class="example-content">
       <view class="wexui-article">
         <view class="article-section">
             <view class="article-section-content center">
-                <image class="article-section-image" src="/pages/images/pomian.jpg"></image>
+                <image class="article-section-image" src="/pages/images/no-image.jpg"></image>
                 <view class="example-title">剖面图</view>
-                <image class="article-section-image" src="/pages/images/shiwu.jpg"></image>
+                <image class="article-section-image" src="/pages/images/no-image.jpg"></image>
                 <view class="example-title">实物图</view>
             </view>
-            <view class="wexui-article">
-              <view class="h5">物资编号:0000809　　　　Type No.960999</view>
-              <view class="h5">结构形式：轴箱拉杆式</view>
-              <view class="h5">Structural style：Axle box rod</view>
+            <view class="wexui-list">
+              <view class="list-content">物资编号:{{productInfo.productnum}}</view>
+              <view class="list-content">Type No.{{productInfo.productnum}}</view>
+            </view>
+            <view class="wexui-list">
+              <view class="list-content">结构形式:{{productInfo.structtype}}</view>
             </view>
             <view class="wexui-article center margin-top-15">
               <view class="h5">性能参数(Characteristic)</view>
-              <view class="wexui-list">
-                <view class="list-content font-28">外径(External Diameter)　　　　　　　　110mm</view>
+              <view class="wexui-list" wx:if="{{productInfo.wj != null}}">
+                <view class="list-content">外径/mm</view>
+                <view class="list-content">{{productInfo.wj}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">芯轴长度(Mandrel Length)　　　　　　　　200mm</view>
+              <view class="wexui-list" wx:if="{{productInfo.bzgd != null}}">
+                <view class="list-content">标准高度/mm</view>
+                <view class="list-content">{{productInfo.bzgd}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">安装长度(Assembiy Length)　　　　　　　　150mm</view>
+              <view class="wexui-list" wx:if="{{productInfo.cz != null}}">
+                <view class="list-content">超载/kN</view>
+                <view class="list-content">{{productInfo.cz}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">最大荷载(Max Load)　　　　　　　　75kN</view>
+              <view class="wexui-list" wx:if="{{productInfo.weight != null}}">
+                <view class="list-content">重量/kg</view>
+                <view class="list-content">{{productInfo.weight}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">工作荷载(Work Load)　　　　　　　　40kN</view>
+              <view class="wexui-list" wx:if="{{productInfo.lgjzdjj != null}}">
+                <view class="list-content">连杆加载点间距L1/mm</view>
+                <view class="list-content">{{productInfo.lgjzdjj}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">径向刚度(Radial Stiffness)　　　　　　　　30kN/mm</view>
+              <view class="wexui-list" wx:if="{{productInfo.zczjj != null}}">
+                <view class="list-content">支撑座间距L2/mm</view>
+                <view class="list-content">{{productInfo.zczjj}}</view>
               </view>
-              <view class="wexui-list">
-                <view class="list-content font-28">轴向刚度(Axial Stiffness)　　　　　　　　0.23kN/mm</view>
+              <view class="wexui-list" wx:if="{{productInfo.ngbcd != null}}">
+                <view class="list-content">扭杆臂长度L3/mm</view>
+                <view class="list-content">{{productInfo.ngbcd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.jxhz != null}}">
+                <view class="list-content">极限荷载/kN</view>
+                <view class="list-content">{{productInfo.jxhz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.plhz != null}}">
+                <view class="list-content">疲劳荷载/kN</view>
+                <view class="list-content">{{productInfo.plhz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.xtgd != null}}">
+                <view class="list-content">系统刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.xtgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.lgzxj != null}}">
+                <view class="list-content">连杆中心距L1/mm</view>
+                <view class="list-content">{{productInfo.lgzxj}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.gtqtwj != null}}">
+                <view class="list-content">杆体球头外径D2/mm</view>
+                <view class="list-content">{{productInfo.gtqtwj}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.klx != null}}">
+                <view class="list-content">孔类型</view>
+                <view class="list-content">{{productInfo.klx}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.yzl != null}}">
+                <view class="list-content">压装力/kN</view>
+                <view class="list-content">{{productInfo.yzl}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.jxgd != null}}">
+                <view class="list-content">径向刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.jxgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.cd != null}}">
+                <view class="list-content">长度A/mm</view>
+                <view class="list-content">{{productInfo.cd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.kd != null}}">
+                <view class="list-content">宽度B/mm</view>
+                <view class="list-content">{{productInfo.kd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.gd != null}}">
+                <view class="list-content">高度C/mm</view>
+                <view class="list-content">{{productInfo.gd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zpcc != null}}">
+                <view class="list-content">装配尺寸L4/mm</view>
+                <view class="list-content">{{productInfo.zpcc}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zongxgd != null}}">
+                <view class="list-content">纵向刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.zongxgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zpcd != null}}">
+                <view class="list-content">装配长度C/mm</view>
+                <view class="list-content">{{productInfo.zpcd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zhouxgd != null}}">
+                <view class="list-content">轴向刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.zhouxgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.kz != null}}">
+                <view class="list-content">空载（AWO）/kN</view>
+                <view class="list-content">{{productInfo.kz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zdhz != null}}">
+                <view class="list-content">最大荷载/kN</view>
+                <view class="list-content">{{productInfo.zdhz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.cxgd != null}}">
+                <view class="list-content">垂向（AWO）刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.cxgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.ysg != null}}">
+                <view class="list-content">压缩高（AWO）/mm</view>
+                <view class="list-content">{{productInfo.ysg}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.cxhz != null}}">
+                <view class="list-content">垂向荷载/kN</view>
+                <view class="list-content">{{productInfo.cxhz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.syhz != null}}">
+                <view class="list-content">受压荷载/kN</view>
+                <view class="list-content">{{productInfo.syhz}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.gangd != null}}">
+                <view class="list-content">刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.gangd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.vxjd != null}}">
+                <view class="list-content">V形角度/°</view>
+                <view class="list-content">{{productInfo.vxjd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zyg != null}}">
+                <view class="list-content">自由高/mm</view>
+                <view class="list-content">{{productInfo.zyg}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.hxgd != null}}">
+                <view class="list-content">横向刚度/kN/mm</view>
+                <view class="list-content">{{productInfo.hxgd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.zhij != null}}">
+                <view class="list-content">直径A/mm</view>
+                <view class="list-content">{{productInfo.zhij}}</view>
               </view>
             </view>
             <view class="wexui-article center">
@@ -43,7 +156,7 @@
             <view class="article-section">
                 <view class="article-section-content">
                     <view class="article-section-text">
-                        此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。此处是产品描述性内容。
+                        {{productInfo.remark}}
                     </view>
                 </view>
             </view>
