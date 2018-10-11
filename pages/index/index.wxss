@@ -153,6 +153,16 @@
   padding:20rpx;
 }
 
+.searchinput-lr {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.searchinput-mlr {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
 .index-searchbox-input {
   border-radius:100px;
   text-align:center;

@@ -4,7 +4,7 @@
       <view class="wexui-searchbox searchinput">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
-              <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+              <input type="text" placeholder="搜索产品名称" confirm-type="search" bindconfirm="filterResult"/>
           </view>
       </view>
       <view class="example-content">
@@ -52,10 +52,10 @@
                 <view class="train-list-desc">{{typeItem.typename}}</view>
               </view>
               <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view wx:if="{{productItem.producttype == typeItem.producttype}}" class="wexui-list list-arrow">
+                <view wx:if="{{productItem.producttype == typeItem.producttype &&  (tabIndex=='00' || tabIndex==productItem.platform)}}" class="wexui-list list-arrow">
                   <view class="list-content-searchresult" data-productid="{{productItem.id}}" bindtap="toProductDetail">{{productItem.productname}}</view>
                 </view>
-                <view wx:if="{{productItem.producttype == typeItem.producttype}}"  class="wexui-list">
+                <view wx:if="{{productItem.producttype == typeItem.producttype &&  (tabIndex=='00' || tabIndex==productItem.platform)}}"  class="wexui-list">
                   <view class="list-content-searchresult-attr">物资编号</view>
                   <view class="list-desc-searchresult-attr">{{productItem.productnum}}</view> 
                 </view>

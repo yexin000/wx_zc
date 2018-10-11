@@ -64,7 +64,13 @@
         <view class="we-phone-content">
             <view class="wexui-panel">
                   <view class="panel-content">
-                      <view class="panel-phone" wx:for="{{phones}}" wx:for-index="idx" wx:for-item="phone">
+                      <view class="panel-phone" wx:for="{{phonesLeft}}" wx:for-index="idx" wx:for-item="phone">
+                        <view class="panel-phonetype">{{phone.phonetype}}</view>
+                        <view class="panel-phonenum">{{phone.phonenum}}</view>
+                      </view>
+                  </view>
+                  <view class="panel-content">
+                      <view class="panel-phone" wx:for="{{phonesRight}}" wx:for-index="idx" wx:for-item="phone">
                         <view class="panel-phonetype">{{phone.phonetype}}</view>
                         <view class="panel-phonenum">{{phone.phonenum}}</view>
                       </view>

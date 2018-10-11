@@ -38,7 +38,7 @@ Page({
   navbarTap: function (e) {
     var that = this;
     this.setData({
-      currentTab: e.currentTarget.id,   //按钮CSS变化
+      currentTab: e.currentTarget.dataset.producttype,   //按钮CSS变化
       producttype: e.currentTarget.dataset.producttype,
       scrollTop: 0,   //切换导航后，控制右侧滚动视图回到顶部
     })
@@ -80,8 +80,10 @@ Page({
    */
   onLoad: function (options) {
     var producttype = options.producttype;
-    var that = this;
     this.getProductList(producttype);
+    this.setData({
+      currentTab: producttype
+    });
   },
 
   /**

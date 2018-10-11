@@ -4,14 +4,14 @@
       <view class="wexui-searchbox searchinput">
         <view class="searchbox-input index-searchbox-input">
           <icon type="search" size="16" />
-          <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+          <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
         </view>
       </view>
     </view>
     <view>
     <!--分类导航栏-->
     <scroll-view class='left-navbar' scroll-y="true">
-      <view wx:for="{{allproducttypes}}" class="{{ currentTab == index ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index ? 'navbarTap':'' }}" id="{{index}}" data-producttype="{{item.producttype}}">{{item.productname}}</view>
+      <view wx:for="{{allproducttypes}}" class="{{ currentTab == item.producttype ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != item.producttype ? 'navbarTap':'' }}" id="{{index}}" data-producttype="{{item.producttype}}">{{item.productname}}</view>
     </scroll-view>
     <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
       <!--商品展示-->

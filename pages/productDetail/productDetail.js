@@ -8,6 +8,8 @@ Page({
    */
   data: {
     productInfo: null,
+    realpic: '/pages/images/no-image.jpg',
+    snapshot: '/pages/images/no-image.jpg',
     productName: '轴箱拉杆橡胶关节(Axle Box Rod Budshing)'
   },
 
@@ -32,6 +34,11 @@ Page({
         wx.hideLoading();
         that.setData({
           productInfo: res.data.data.productInfo
+        });
+        
+        that.setData({
+          realpic: res.data.data.productInfo.realpic ? res.data.data.productInfo.realpic : '/pages/images/no-image.jpg',
+          snapshot: res.data.data.productInfo.snapshot ? res.data.data.productInfo.snapshot : '/pages/images/no-image.jpg'
         });
       },
       complete: function () {

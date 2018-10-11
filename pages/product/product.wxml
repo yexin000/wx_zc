@@ -4,7 +4,7 @@
       <view class="wexui-searchbox searchinput">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
-              <input type="text" placeholder="搜索零件名称" bindfocus="toSearchPage"/>
+              <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
           </view>
       </view>
       <view class="example-content">
@@ -15,31 +15,16 @@
                         <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">客车(动车组)</view>
+                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">轨道交通</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">机车</view>
+                        <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">风电</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">地铁</view>
+                        <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">桥建</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">LRV轻轨</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='05'?'current':''}}" bindtap="tapTabsDefault" data-id="05">磁悬浮</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='06'?'current':''}}" bindtap="tapTabsDefault" data-id="06">风电</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='07'?'current':''}}" bindtap="tapTabsDefault" data-id="07">轨道线路</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='08'?'current':''}}" bindtap="tapTabsDefault" data-id="08">桥建</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='09'?'current':''}}" bindtap="tapTabsDefault" data-id="09">其他</view>
+                        <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">线路</view>
                     </view>
                 </view>
             </scroll-view>
@@ -53,38 +38,38 @@
                     </view>
                   </view>
                 </view>
-                <view wx:if="{{tabIndex == '1'}}">
+                <view wx:if="{{tabIndex == '01'}}">
                   <view class="example-content">
                     <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
                       <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch" wx:if="{{producttype.parenttype == '01'}}"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
                       </view>
                     </view>
                   </view>
                 </view>
-                <view wx:if="{{tabIndex == '2'}}">
+                <view wx:if="{{tabIndex == '02'}}">
                   <view class="example-content">
                     <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
                       <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch" wx:if="{{producttype.parenttype == '02'}}"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
                       </view>
                     </view>
                   </view>
                 </view>
-                <view wx:if="{{tabIndex == '3'}}">
+                <view wx:if="{{tabIndex == '03'}}">
                   <view class="example-content">
                     <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
                       <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch" wx:if="{{producttype.parenttype == '03'}}"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
                       </view>
                     </view>
                   </view>
                 </view>
-                <view wx:if="{{tabIndex == '4'}}">
+                <view wx:if="{{tabIndex == '04'}}">
                   <view class="example-content">
                     <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
                       <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch" wx:if="{{producttype.parenttype == '04'}}"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
                       </view>
                     </view>
                   </view>

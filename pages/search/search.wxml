@@ -4,7 +4,7 @@
     <view class="wexui-searchbox searchinput">
       <view class="searchbox-input index-searchbox-input">
           <icon type="search" size="16" style="left:25%;"/>
-          <input type="text" value="{{searchText}}" bindinput="bindKeyInput" placeholder="搜索零件名称"/>
+          <input type="text" value="{{searchText}}" bindinput="bindKeyInput" placeholder="搜索产品名称"/>
       </view>
       <button class="cancel-btn" bindtap='toSearchResult'>搜索</button>
     </view>
@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="wexui-searchbox searchinput">
-      <button class="label-btn">车型</button>
+      <button class="label-btn">应用平台</button>
     </view>
     <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
       <view wx:if="{{idx % 2 == 0}}" class="wexui-searcharea">
@@ -30,32 +30,219 @@
         <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
       </view>
     </view>
-    <!--
-    <view class="wexui-searchbox searchinput">
+
+    <view class="wexui-searchbox searchinput-lr">
+      <button class="label-btn">产品类型</button>
+    </view>
+    <picker mode="selector" class="searchinput-mlr" value="{{productIndex}}" range="{{productTypes}}" range-key="typename" bindchange="bindChange">
+        <view class="wexui-list list-form list-arrow list-active">
+            <view class="list-content">{{productTypes[productIndex].typename}}</view>
+        </view>
+    </picker>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01'}}">
       <button class="label-btn">外径</button>
     </view>
-    <view class="wexui-searchbox searchinput">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01'}}">
       <view class="searchbox-input index-searchbox-input">
-          <input type="text" placeholder="最小外径"/>
+          <input type="text" placeholder="最小外径" value="{{zxwj}}" bindblur="zxwjInput"/>
       </view>
       <text>~</text>
       <view class="searchbox-input index-searchbox-input">
-          <input type="text" placeholder="最大外径"/>
+          <input type="text" placeholder="最大外径" value="{{zdwj}}" bindblur="zdwjInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04'}}">
+      <button class="label-btn">标准高度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小高度" value="{{zxbzgd}}" bindblur="zxbzgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大高度" value="{{zdbzgd}}" bindblur="zdbzgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <button class="label-btn">连杆加载点间距</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小间距" value="{{zxlgjzdjj}}" bindblur="zxlgjzdjjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大间距" value="{{zdlgjzdjj}}" bindblur="zdlgjzdjjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <button class="label-btn">支撑座间距</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小间距" value="{{zxzczjj}}" bindblur="zxzczjjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大间距" value="{{zdzczjj}}" bindblur="zdzczjjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <button class="label-btn">扭杆臂长度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '05'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小长度" value="{{zxngbcd}}" bindblur="zxngbcdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大长度" value="{{zdngbcd}}" bindblur="zdngbcdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '06'}}">
+      <button class="label-btn">连杆中心距</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '06'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小中心距" value="{{zxlgzxj}}" bindblur="zxlgzxjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大中心距" value="{{zdlgzxj}}" bindblur="zdlgzxjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '06'}}">
+      <button class="label-btn">杆体球头外径</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '06'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小外径" value="{{zxgtqtwj}}" bindblur="zxgtqtwjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大外径" value="{{zdgtqtwj}}" bindblur="zdgtqtwjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '07'}}">
+      <button class="label-btn">纵向刚度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '07'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小刚度" value="{{zxzongxgd}}" bindblur="zxzongxgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大刚度" value="{{zdzongxgd}}" bindblur="zdzongxgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+      <button class="label-btn">长度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小长度" value="{{zxcd}}" bindblur="zxcdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大长度" value="{{zdcd}}" bindblur="zdcdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+      <button class="label-btn">宽度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小宽度" value="{{zxkd}}" bindblur="zxkdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大宽度" value="{{zdkd}}" bindblur="zdkdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11'}}">
+      <button class="label-btn">高度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小高度" value="{{zxgd}}" bindblur="zxgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大高度" value="{{zdgd}}" bindblur="zdgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02'}}">
+      <button class="label-btn">刚度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小刚度" value="{{zxgangd}}" bindblur="zxgangdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大刚度" value="{{zdgangd}}" bindblur="zdgangdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+      <button class="label-btn">自由高</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小高度" value="{{zxzyg}}" bindblur="zxzygInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大高度" value="{{zdzyg}}" bindblur="zdzygInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+      <button class="label-btn">轴向刚度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小刚度" value="{{zxzhouxgd}}" bindblur="zxzhouxgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大刚度" value="{{zdzhouxgd}}" bindblur="zdzhouxgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10'}}">
+      <button class="label-btn">垂向刚度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小刚度" value="{{zxcxgd}}" bindblur="zxcxgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大刚度" value="{{zdcxgd}}" bindblur="zdcxgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '10'}}">
+      <button class="label-btn">V形角度</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '10'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最小角度" value="{{zxvxjd}}" bindblur="zxvxjdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="text" placeholder="最大角度" value="{{zdvxjd}}" bindblur="zdvxjdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '01'}}">
       <button class="label-btn">径向刚度</button>
     </view>
-    <view class="wexui-searchbox searchinput">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '01'}}">
       <view class="searchbox-input index-searchbox-input">
-          <input type="text" placeholder="最小刚度"/>
+          <input type="text" placeholder="最小刚度" value="{{zxjxgd}}" bindblur="zxjxgdInput"/>
       </view>
       <text>~</text>
       <view class="searchbox-input index-searchbox-input">
-          <input type="text" placeholder="最大刚度"/>
+          <input type="text" placeholder="最大刚度" value="{{zdjxgd}}" bindblur="zdjxgdInput"/>
       </view>
     </view>
-    -->
     <view class="btn btn-success size-big btn-block" bindtap="toSearchResult">立即搜索</view>
   </view>
 </view>

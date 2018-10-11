@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    //interfaceUrl: 'http://localhost:8080/wx/'
     interfaceUrl: 'https://guidaogouwuche.com/wx/'
   }
 })

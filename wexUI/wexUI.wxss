@@ -2102,7 +2102,7 @@ icon {
 
 .panel-phone {
   border-bottom: 1px #ddd solid;
-  width: 80%;
+  width: 100%;
   margin-bottom: 10rpx;
 }
 
@@ -3872,6 +3872,11 @@ icon {
  * 更新日期：2017-12-26
  */
 
+.tabs-index {
+  color: black;
+  font-weight: bold;
+}
+
 .wexui-tabs {
     font-size: 30rpx;
 }
@@ -3907,6 +3912,11 @@ icon {
 .wexui-tabs .tabs-header .tabs-item .tabs-title.current {
     padding-bottom: 10rpx;
     border-bottom: solid 4rpx white;
+}
+
+.wexui-tabs .tabs-header .tabs-item .tabs-title.indexcurrent {
+    padding-bottom: 10rpx;
+    border-bottom: solid 4rpx black;
 }
 
 .tabs-content {

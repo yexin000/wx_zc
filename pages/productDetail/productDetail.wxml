@@ -4,14 +4,20 @@
       <view class="wexui-article">
         <view class="article-section">
             <view class="article-section-content center">
-                <image class="article-section-image" src="/pages/images/no-image.jpg"></image>
+                <image class="article-section-image" src="{{snapshot}}"></image>
                 <view class="example-title">剖面图</view>
-                <image class="article-section-image" src="/pages/images/no-image.jpg"></image>
+                <image class="article-section-image" src="{{realpic}}"></image>
                 <view class="example-title">实物图</view>
             </view>
             <view class="wexui-list">
               <view class="list-content">物资编号:{{productInfo.productnum}}</view>
               <view class="list-content">Type No.{{productInfo.productnum}}</view>
+            </view>
+            <view class="wexui-list">
+              <view class="list-content">产品应用平台:{{productInfo.platformname}}</view>
+            </view>
+            <view class="wexui-list">
+              <view class="list-content">产品应用车型:{{productInfo.traintypename}}</view>
             </view>
             <view class="wexui-list">
               <view class="list-content">结构形式:{{productInfo.structtype}}</view>

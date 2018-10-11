@@ -20,18 +20,21 @@ Page({
       { awardTitle: '省级    2008-12-20', awardDesc: '湖南省高新技术企业' },
       { awardTitle: '省级    2008-12-07', awardDesc: '湖南名牌' }
     ],
-    phones: [
+    phonesLeft: [
       { phonetype: '人资类', phonenum: '86-0731-22837728' },
       { phonetype: '市场类：铁路机车车辆', phonenum: '86-0731-22884741' },
       { phonetype: '市场类：高铁、普铁线路产品', phonenum: '86-0731-22837826' },
       { phonetype: '市场类：风电减振元件', phonenum: '86-0731-22837769' },
       { phonetype: '市场类：风电叶片', phonenum: '86-0731-22837948' },
-      { phonetype: '市场类：桥梁建设', phonenum: '86-0731-22837719' },
+      { phonetype: '市场类：桥梁建设', phonenum: '86-0731-22837719' }
+    ],
+    phonesRight: [
       { phonetype: '市场类：城轨铁路减振产品', phonenum: '86-0731-28445038' },
       { phonetype: '市场类：橡塑元件市场', phonenum: '86-0731-28491684' },
       { phonetype: '市场类：工程塑料', phonenum: '86-0731-28445089' },
       { phonetype: '市场类：薄膜市场', phonenum: '86-0731-22534008' },
-      { phonetype: '市场类：芳纶市场', phonenum: '86-0731-22837934' }
+      { phonetype: '市场类：芳纶市场', phonenum: '86-0731-22837934' },
+      { phonetype: '　', phonenum: '　' }
     ],
     org: "",
     name: "",
@@ -40,6 +43,7 @@ Page({
     content: ""
   },
   submitMessage: function(e) {
+    var that = this;
     if (!e.detail.value.org) {
       this.showDialog("请输入单位名称");
       return;
@@ -81,11 +85,7 @@ Page({
         wx.hideLoading();
         if (result) {
           if (result.data.errno == 0) {
-            wx.showToast({
-              title: '提交成功',
-              icon: 'success',
-              duration: 2000
-            })
+            that.showDialog("提交成功");
           } else if (result.data.errno == 10001) {
             wx.showToast({
               title: '抱歉，操作失败',

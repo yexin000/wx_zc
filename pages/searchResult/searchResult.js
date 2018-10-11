@@ -10,6 +10,7 @@ Page({
     currentTab: '00',
     tabIndex: '00',
     typeList: [],
+    productListData: [],
     productList: []
   },
   tapTabsDefault(e) {
@@ -29,6 +30,26 @@ Page({
       currentTab: e.detail.current
     });
   }, 
+  filterResult: function(e) {
+    var filterValue = e.detail.value;
+    if (filterValue != null && filterValue != "") {
+      if (this.data.productListData.length > 0) {
+        var list = []
+        for(var i = 0; i < this.data.productListData.length; i ++) {
+          if (this.data.productListData[i].productname.indexOf(filterValue) >= 0) {
+            list.push(this.data.productListData[i])
+          }
+        }
+        this.setData({
+          productList: list
+        });
+      }
+    } else {
+      this.setData({
+        productList: this.data.productListData
+      });
+    }
+  },
   toProductDetail: function(e) {
     let productId = e.currentTarget.dataset.productid;
     wx.navigateTo({
@@ -41,6 +62,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     var productName = options.productName;
+    var productType = options.productType;
+    var conditionText = options.conditionText;
     var platform = options.platform;
     if (platform) {
       this.setData({
@@ -54,8 +77,9 @@ Page({
     wx.request({
       url: app.globalData.interfaceUrl + 'zc/list',
       data: {
-        platform: platform,
-        productName: productName
+        productName: productName,
+        productType: productType,
+        conditionText: conditionText
       },
       header: {
         'content-type': 'application/json'
@@ -66,7 +90,8 @@ Page({
           typeList: res.data.data.typeList
         });
         that.setData({
-          productList: res.data.data.data
+          productList: res.data.data.data,
+          productListData: res.data.data.data
         });
         console.log(res.data)
       },
