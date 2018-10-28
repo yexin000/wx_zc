@@ -9,13 +9,15 @@
     "pages/productDetail/productDetail",
     "pages/trainProduct/trainProduct",
     "pages/searchResult/searchResult",
+    "pages/playVideo/playVideo",
+    "pages/searchResultForm/searchResultForm",
     "pages/train/train"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#c40018",
+    "navigationBarTitleText": "时代新材600458",
+    "navigationBarTextStyle":"white"
   },
 
   "tabBar": {

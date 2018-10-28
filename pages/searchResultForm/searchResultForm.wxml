@@ -1,0 +1,75 @@
+<view class="container">
+  <view class="index wexui-tabbar">
+    <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
+      <view class="wexui-searchbox searchinput">
+          <view class="searchbox-input index-searchbox-input">
+              <icon type="search" size="16" />
+              <input type="text" placeholder="搜索产品名称" confirm-type="search" bindconfirm="filterResult"/>
+          </view>
+      </view>
+      <view class="example-content">
+        <view class="wexui-tabs">
+          <scroll-view scroll-x="true">
+              <view class="tabs-header">
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">客车(动车组)</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">机车</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">地铁</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">LRV轻轨</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='05'?'current':''}}" bindtap="tapTabsDefault" data-id="05">磁悬浮</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='06'?'current':''}}" bindtap="tapTabsDefault" data-id="06">风电</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='07'?'current':''}}" bindtap="tapTabsDefault" data-id="07">轨道线路</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='08'?'current':''}}" bindtap="tapTabsDefault" data-id="08">桥建</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='09'?'current':''}}" bindtap="tapTabsDefault" data-id="09">其他</view>
+                  </view>
+              </view>
+          </scroll-view>
+          <view class="tabs-content">
+            <view class="example-content">
+              <view class="wexui-flex" style="height:80rpx;">
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">标准高度/mm</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">空载/kN/mm</view>
+              </view>
+              <view class="wexui-flex" style="height:80rpx;">
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">牵引橡胶关节</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">10001255</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">98.5</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">15</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">30</view>
+              </view>
+              <view class="wexui-flex" style="height:80rpx;">
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">牵引橡胶关节</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">10001255</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">98.5</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-right: solid 1rpx #8e8e90;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">15</view>
+                  <view class="flex-item" style="padding-top:20rpx;border-bottom: solid 1rpx #8e8e90;font-size:25rpx;">30</view>
+              </view>
+          </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

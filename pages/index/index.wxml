@@ -3,19 +3,17 @@
   <!-- 首页 -->
   <view wx:if="{{tabbar1}}" class="index wexui-tabbar">
     <view class="header-bg tabbar-content" style="background-image:  url( https://mlhdkj.com/weixin/sdFile/zc/header-bg.png); background-repeat:no-repeat;"> 
-      <view class="header">
-          <image class="header-logo" src="https://mlhdkj.com/weixin/sdFile/zc/header-logo.png" />
-      </view>
-      <view class="wexui-searchbox searchinput">
+    
+      <view class="wexui-searchbox searchinput" style="position:fixed;z-index: 999;width:95%;padding-left:20rpx;padding-right:20rpx;padding-top:0;padding-bottom:0;opacity:0.95;">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
               <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
           </view>
       </view>
-      <view class="page-section page-section-spacing swiper">
+      <view class="page-section page-section-spacing swiper" style="padding-top:110rpx;">
         <swiper
           indicator-dots="true" autoplay="true" interval="3000" duration="500"
-            previous-margin="30px" next-margin="30px">
+            previous-margin="30px" next-margin="30px" circular="true">
           <block wx:for="{{background}}" wx:key="*this">
             <swiper-item>
               <image src="{{item.url}}" class="slide-image"/>
@@ -28,11 +26,11 @@
             <view class="list-logo">
                 <image style="width:25rpx;" src="../images/list-header.png" />
             </view>
-            <view class="list-desc">产品应用平台</view>
+            <view class="list-desc">产品应用平台/工况</view>
         </view>
         <view class="wexui-grid" style="margin-left:20rpx;margin-right:20rpx;">
           <view wx:for="{{products}}" wx:for-index="idx" wx:for-item="product">
-            <view class="grid-item" bindtap='toTrainSearch' data-traintype="{{product.traintype}}"><image src="{{product.img}}" class="grid-item-icon"/><view class="grid-item-label">{{product.text}}</view>
+            <view class="grid-item" style="padding:5px 5px;" bindtap='toTrainSearch' data-traintype="{{product.traintype}}"><image src="{{product.img}}" class="grid-item-icon"/><view class="grid-item-label">{{product.text}}</view>
             </view>
           </view>
         </view>
@@ -51,13 +49,13 @@
                         <view class="tabs-title tabs-index {{tabIndex=='01'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="01" style='color:black;'>轨道交通</view>
                     </view>
                     <view class="tabs-item">
+                        <view class="tabs-title tabs-index {{tabIndex=='03'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="03" style='color:black;'>线路</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title tabs-index {{tabIndex=='04'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="04" style='color:black;'>桥建</view>
+                    </view>
+                    <view class="tabs-item">
                         <view class="tabs-title tabs-index {{tabIndex=='02'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="02" style='color:black;'>风电</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title tabs-index {{tabIndex=='03'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="03" style='color:black;'>桥建</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title tabs-index {{tabIndex=='04'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="04" style='color:black;'>线路</view>
                     </view>
                 </view>
             </scroll-view>

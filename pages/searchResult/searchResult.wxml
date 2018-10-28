@@ -1,13 +1,13 @@
 <view class="container">
   <view class="index wexui-tabbar">
     <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
-      <view class="wexui-searchbox searchinput">
-          <view class="searchbox-input index-searchbox-input">
+      <view class="wexui-searchbox searchinput" style="position:fixed;z-index: 999;opacity:0.95;width:95%;">
+          <view class="searchbox-input index-searchbox-input" style="opacity:0.95;">
               <icon type="search" size="16" />
-              <input type="text" placeholder="搜索产品名称" confirm-type="search" bindconfirm="filterResult"/>
+              <input type="text" placeholder="搜索产品名称" confirm-type="search" bindconfirm="filterResult"  style="opacity:0.95;"/>
           </view>
       </view>
-      <view class="example-content">
+      <view class="example-content" style="padding-top:110rpx;">
         <view class="wexui-tabs">
           <scroll-view scroll-x="true">
               <view class="tabs-header">

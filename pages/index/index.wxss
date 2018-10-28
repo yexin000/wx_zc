@@ -181,7 +181,7 @@
 }
 
 .swiper {
-  height: 350rpx;
+  height: 320rpx;
   width: 100%;
   text-align: center;
 }

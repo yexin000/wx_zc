@@ -13,6 +13,14 @@ Page({
     productName: '轴箱拉杆橡胶关节(Axle Box Rod Budshing)'
   },
 
+  showImage: function (event) {
+    var src = event.currentTarget.dataset.src;//获取data-src
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: [src] // 需要预览的图片http链接列表
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

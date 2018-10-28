@@ -15,7 +15,7 @@
     </scroll-view>
     <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
       <!--商品展示-->
-      <view class="goods-list" wx:for="{{productPropList}}" wx:key="unique">
+      <view class="goods-list" wx:for="{{productShowList}}" wx:key="unique">
         <view class="goods-title">{{item.productPropName}}</view>
         <view wx:for="{{item.productlist}}" id="{{item.id}}">
           <view class="wexui-list list-arrow" data-productid="{{item.id}}"   bindtap="toProductDetail">

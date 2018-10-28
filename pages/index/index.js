@@ -86,6 +86,12 @@ Page({
       url: '../train/train?traintype=' + traintype
     })
   },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log('onReachBottom')
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

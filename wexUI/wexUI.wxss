@@ -965,15 +965,7 @@ icon {
 
 .btn.btn-primary {
     color: #fff;
-    background: #2d8cf0;
-    border: solid 2rpx #2d8cf0;
 }
-
-.btn.btn-primary:active {
-    background-color: #57a3f3;
-    border: solid 2rpx #57a3f3;
-}
-
 
 /*success-按钮*/
 
@@ -997,10 +989,10 @@ icon {
     background: #c40018;
     border: solid 2rpx #c40018;
     margin-top: 30rpx;
-    margin-left: 25rpx;
-    margin-right: 25rpx;
+    margin-left: 15rpx;
+    margin-right: 15rpx;
     border-radius:50rpx;
-    width: 50%;
+    width: 33%;
     line-height: 1.4;
 }
 
@@ -1008,11 +1000,11 @@ icon {
     color: #999;
     background: transparent;
     border: solid 2rpx #cfcfcf;
-    margin-top: 30rpx;
-    margin-left: 25rpx;
-    margin-right: 25rpx;
+    margin-top: 10rpx;
+    margin-left: 15rpx;
+    margin-right: 15rpx;
     border-radius:50rpx;
-    width: 50%;
+    width: 33%;
     line-height: 1.4;
 }
 
@@ -2103,7 +2095,7 @@ icon {
 .panel-phone {
   border-bottom: 1px #ddd solid;
   width: 100%;
-  margin-bottom: 10rpx;
+  margin-bottom: 30rpx;
 }
 
 .wexui-panel .panel-content .panel-phonetype {

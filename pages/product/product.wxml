@@ -1,13 +1,13 @@
 <view class="container">
 <view class="index wexui-tabbar">
     <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
-      <view class="wexui-searchbox searchinput">
+      <view class="wexui-searchbox searchinput" style="position:fixed;z-index: 999;opacity:0.95;width:95%;">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
               <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
           </view>
       </view>
-      <view class="example-content">
+      <view class="example-content" style="padding-top:110rpx;">
         <view class="wexui-tabs">
             <scroll-view scroll-x="true">
                 <view class="tabs-header">
@@ -18,13 +18,13 @@
                         <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">轨道交通</view>
                     </view>
                     <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">线路</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">桥建</view>
+                    </view>
+                    <view class="tabs-item">
                         <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">风电</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">桥建</view>
-                    </view>
-                    <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='04'?'current':''}}" bindtap="tapTabsDefault" data-id="04">线路</view>
                     </view>
                 </view>
             </scroll-view>

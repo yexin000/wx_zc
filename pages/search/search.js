@@ -23,6 +23,7 @@ Page({
     productIndex : 0,
     productType : null,
     searchText : '',
+    showHistory : false,
     zdwj: null,
     zxwj: null,
     zdbzgd: null,
@@ -75,6 +76,11 @@ Page({
   bindKeyInput: function (e) {
     this.setData({
       searchText: e.detail.value
+    })
+  },
+  historyDisplay : function() {
+    this.setData({
+      showHistory: !this.data.showHistory
     })
   },
   clearHistory: function(e) {
@@ -209,6 +215,9 @@ Page({
       wx.navigateTo({
         url: '../searchResult/searchResult?productName=' + this.data.searchText + '&platform=' + this.data.checkedTrainType + '&productType=' + this.data.productType + '&conditionText=' + conditionText
       })
+      /*wx.navigateTo({
+        url: '../searchResultForm/searchResultForm?productName=' + this.data.searchText + '&platform=' + this.data.checkedTrainType + '&productType=' + this.data.productType + '&conditionText=' + conditionText
+      })*/
     }
   },
   loadHistory: function() {
@@ -216,7 +225,8 @@ Page({
       var value = wx.getStorageSync('historyList')
       var list = value.split(",");
       var historyList = [];
-      for (var i = 0; i < list.length; i++) {
+      var hLength = list.length > 3 ? 3 : list.length;
+      for (var i = list.length - 1; i >= list.length - hLength; i --) {
         var history = {};
         history.productName = list[i];
         historyList.push(history);
@@ -240,6 +250,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var productType = options.producttype;
+    if (productType != null && productType != "") {
+      this.setData({
+        productType: productType
+      })
+    }
     this.loadHistory();
     var that = this;
     // 查询产品类型
@@ -254,12 +270,24 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        var defaultType = { id: "0", producttype : 0, typename : "请选择"}
+        var defaultType = { id: "0", producttype : "", typename : "请选择"}
         res.data.data.unshift(defaultType)
         that.setData({
           productTypes: res.data.data
         });
-        console.log(res.data)
+        if (productType != null && productType != "") {
+          that.setData({
+            productType: productType
+          })
+          for (var m = 0; m < that.data.productTypes.length; m++) {
+            if (that.data.productTypes[m].producttype == that.data.productType) {
+              that.setData({
+                productIndex: m
+              })
+              break;
+            }
+          }
+        }
       },
       complete: function () {
         wx.hideLoading();

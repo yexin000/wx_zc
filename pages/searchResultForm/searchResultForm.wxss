@@ -1,0 +1,3 @@
+/* pages/searchResultForm/searchResultForm.wxss */
+@import "../../wexUI/wexUI.wxss";
+@import "../index/index.wxss";

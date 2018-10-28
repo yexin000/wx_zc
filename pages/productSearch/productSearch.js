@@ -28,11 +28,43 @@ Page({
       { producttype: '16', productname: '风电产品' }
     ], //左侧导航栏内容
     producttype: "",  //后台查询需要的字段
-    productPropList: [] //右侧内容
+    productPropList: [], //右侧所有内容,
+    productShowList: [], //右侧显示内容
+    searchinput: ""
+  },
+  filterResult: function (e) {
+    var filterValue = e.detail.value;
+    if (filterValue != null && filterValue != "") {
+      if (this.data.productPropList.length > 0) {
+        var list = []
+        for (var i = 0; i < this.data.productPropList.length; i++) {
+          var prop = {};
+          prop.productPropName = this.data.productPropList[i].productPropName;
+          prop.productlist = [];
+          if (this.data.productPropList[i].productlist != null && this.data.productPropList[i].productlist.length > 0) {
+            for (var j = 0; j < this.data.productPropList[i].productlist.length; j ++) {
+              if (this.data.productPropList[i].productlist[j].productname.indexOf(filterValue) >= 0) {
+                prop.productlist.push(this.data.productPropList[i].productlist[j]);
+              }
+            }
+          }
+          if (prop.productlist.length > 0) {
+            list.push(prop);
+          }
+        }
+        this.setData({
+          productShowList: list
+        });
+      }
+    } else {
+      this.setData({
+        productList: this.data.productListData
+      });
+    }
   },
   toSearchPage: function () {
     wx.navigateTo({
-      url: '../search/search'
+      url: '../search/search?producttype=' + this.data.producttype
     })
   },
   navbarTap: function (e) {
@@ -41,6 +73,9 @@ Page({
       currentTab: e.currentTarget.dataset.producttype,   //按钮CSS变化
       producttype: e.currentTarget.dataset.producttype,
       scrollTop: 0,   //切换导航后，控制右侧滚动视图回到顶部
+    })
+    this.setData({
+      searchinput: ""
     })
     //刷新右侧内容的数据
     this.getProductList(e.currentTarget.dataset.producttype);
@@ -66,7 +101,8 @@ Page({
       success: function (res) {
         wx.hideLoading();
         that.setData({
-          productPropList: res.data.data.productPropList
+          productPropList: res.data.data.productPropList,
+          productShowList: res.data.data.productPropList
         });
         console.log(res.data)
       },
@@ -82,7 +118,8 @@ Page({
     var producttype = options.producttype;
     this.getProductList(producttype);
     this.setData({
-      currentTab: producttype
+      currentTab: producttype,
+      producttype: producttype
     });
   },
 

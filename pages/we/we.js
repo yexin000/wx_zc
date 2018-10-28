@@ -42,6 +42,24 @@ Page({
     email: "",
     content: ""
   },
+  phoneCall: function(e) {
+    var phonenum = e.currentTarget.dataset.phonenum;
+    wx.makePhoneCall({
+      phoneNumber: phonenum,
+      success: function () {
+        console.log("成功拨打电话:" + phonenum)
+      }
+    })
+  },
+  copyEmail: function(e) {
+    var email = e.currentTarget.dataset.email;
+    wx.setClipboardData({
+      data: email,
+      success: function (res) {
+        console.log("邮箱地址复制成功");
+      }
+    })
+  },
   submitMessage: function(e) {
     var that = this;
     if (!e.detail.value.org) {
@@ -112,6 +130,12 @@ Page({
       content: content,
       showCancel: false
     });
+  },
+
+  playVideo: function() {
+    wx.navigateTo({
+      url: '../playVideo/playVideo'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

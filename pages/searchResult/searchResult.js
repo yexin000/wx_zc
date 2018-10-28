@@ -62,7 +62,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     var productName = options.productName;
-    var productType = options.productType;
+    var productType = options.productType == "null" ? "" : options.productType;
     var conditionText = options.conditionText;
     var platform = options.platform;
     if (platform) {
@@ -77,7 +77,7 @@ Page({
     wx.request({
       url: app.globalData.interfaceUrl + 'zc/list',
       data: {
-        productName: productName,
+        nameOrNum: productName,
         productType: productType,
         conditionText: conditionText
       },
