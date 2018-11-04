@@ -231,19 +231,19 @@
     </view>
 
 <view class="wexui-searchbox searchinput">
-      <button class="label-btn">产品应用平台/工况</button>
+      <button class="label-btn">产品应用平台</button>
     </view>
     <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
       <view wx:if="{{idx % 3 == 0}}" class="wexui-searcharea">
-        <button wx:if="{{traintypes[idx].traintype == checkedTrainType}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx].traintype}}">{{traintypes[idx].traintypeName}}</button>
+        <button wx:if="{{traintypes[idx].checked}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx].traintype}}">{{traintypes[idx].traintypeName}}</button>
         <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx].traintype}}">{{traintypes[idx].traintypeName}}</button>
 
         <button wx:if="{{(idx + 1) == traintypes.length}}" style="visibility:hidden" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
-        <button wx:elif="{{traintypes[idx + 1].traintype == checkedTrainType}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
+        <button wx:elif="{{traintypes[idx + 1].checked}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
         <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 1].traintype}}">{{traintypes[idx + 1].traintypeName}}</button>
 
         <button wx:if="{{(idx + 2) == traintypes.length}}" style="visibility:hidden" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 2].traintype}}">{{traintypes[idx + 2].traintypeName}}</button>
-        <button wx:elif="{{traintypes[idx + 2].traintype == checkedTrainType}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 2].traintype}}">{{traintypes[idx + 2].traintypeName}}</button>
+        <button wx:elif="{{traintypes[idx + 2].checked}}" class="btn btn-check" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 2].traintype}}">{{traintypes[idx + 2].traintypeName}}</button>
         <button wx:else class="btn btn-uncheck" bindtap="checkTrainType" data-traintype="{{traintypes[idx + 2].traintype}}">{{traintypes[idx + 2].traintypeName}}</button>
       </view>
     </view>

@@ -11,7 +11,9 @@ Page({
     tabIndex: '00',
     typeList: [],
     productListData: [],
-    productList: []
+    productList: [],
+    showForm: false,
+    formType: null
   },
   tapTabsDefault(e) {
     let id = e.currentTarget.dataset.id;
@@ -66,9 +68,16 @@ Page({
     var conditionText = options.conditionText;
     var platform = options.platform;
     if (platform) {
-      this.setData({
-        tabIndex: platform
-      });
+      var platforms = platform.split(",");
+      if(platforms != null && platforms.length > 1) {
+        this.setData({
+          tabIndex: '00'
+        });
+      } else {
+        this.setData({
+          tabIndex: platform
+        });
+      }
     }
 
     wx.showLoading({
@@ -79,7 +88,8 @@ Page({
       data: {
         nameOrNum: productName,
         productType: productType,
-        conditionText: conditionText
+        conditionText: conditionText,
+        platform: platform
       },
       header: {
         'content-type': 'application/json'
@@ -89,11 +99,16 @@ Page({
         that.setData({
           typeList: res.data.data.typeList
         });
+        if (res.data.data.typeList.length == 1) {
+          that.setData({
+            showForm: true,
+            formType: res.data.data.typeList[0].producttype
+          })
+        }
         that.setData({
           productList: res.data.data.data,
           productListData: res.data.data.data
         });
-        console.log(res.data)
       },
       complete: function () {
         wx.hideLoading();

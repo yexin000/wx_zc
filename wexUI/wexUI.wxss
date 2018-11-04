@@ -988,7 +988,7 @@ icon {
     color: #fff;
     background: #c40018;
     border: solid 2rpx #c40018;
-    margin-top: 30rpx;
+    margin-top: 10rpx;
     margin-left: 15rpx;
     margin-right: 15rpx;
     border-radius:50rpx;

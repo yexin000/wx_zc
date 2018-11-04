@@ -30,7 +30,7 @@ Page({
   }, 
   toSearchPage: function () {
     wx.navigateTo({
-      url: '../search/search'
+      url: '../search/search?traintype=' + this.data.tabIndex
     })
   },
   toTrainProduct: function(e) {

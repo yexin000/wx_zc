@@ -26,7 +26,7 @@
             <view class="list-logo">
                 <image style="width:25rpx;" src="../images/list-header.png" />
             </view>
-            <view class="list-desc">产品应用平台/工况</view>
+            <view class="list-desc">产品应用平台</view>
         </view>
         <view class="wexui-grid" style="margin-left:20rpx;margin-right:20rpx;">
           <view wx:for="{{products}}" wx:for-index="idx" wx:for-item="product">

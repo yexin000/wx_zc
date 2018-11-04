@@ -9,17 +9,18 @@ Page({
   data: {
     historyList : [],
     traintypes : [
-      { traintype: "01", traintypeName: "客车(动车组)"},
-      { traintype: "02", traintypeName: "机车"},
-      { traintype: "03", traintypeName: "地铁"},
-      { traintype: "04", traintypeName: "LRV轻轨"},
-      { traintype: "05", traintypeName: "磁悬浮"},
-      { traintype: "06", traintypeName: "风电"},
-      { traintype: "07", traintypeName: "轨道线路"},
-      { traintype: "08", traintypeName: "桥建"},
-      { traintype: "09", traintypeName: "其他"}
+      { traintype: "01", traintypeName: "客车(动车组)", checked: false},
+      { traintype: "02", traintypeName: "机车", checked: false},
+      { traintype: "03", traintypeName: "地铁", checked: false},
+      { traintype: "04", traintypeName: "LRV轻轨", checked: false},
+      { traintype: "05", traintypeName: "磁悬浮", checked: false},
+      { traintype: "06", traintypeName: "风电", checked: false},
+      { traintype: "07", traintypeName: "轨道线路", checked: false},
+      { traintype: "08", traintypeName: "桥建", checked: false},
+      { traintype: "09", traintypeName: "其他", checked: false}
     ],
     productTypes : [],
+    orgProductTypes : [],
     productIndex : 0,
     productType : null,
     searchText : '',
@@ -58,7 +59,8 @@ Page({
     zxcd: null,
     zdkd: null,
     zxkd: null,
-    checkedTrainType : ""
+    checkedTrainType : "",
+    checkedTrainTypes: []
   },
   checkTrainType: function(e) {
     var traintype = e.currentTarget.dataset.traintype;
@@ -72,6 +74,74 @@ Page({
       })
     }
     
+    for (var i = 0; i < this.data.traintypes.length; i ++) {
+      if (traintype == this.data.traintypes[i].traintype) {
+        var checked = !this.data.traintypes[i].checked;
+        var attr = "traintypes[" + i + "].checked";
+        this.setData({
+          [attr]: checked
+        })
+
+        var checkedList = this.data.checkedTrainTypes;
+        if(checked) {
+          if (checkedList.indexOf(traintype) < 0) {
+            checkedList.push(traintype);
+          }
+        } else {
+          if (checkedList.indexOf(traintype) >= 0) {
+            checkedList.splice(checkedList.indexOf(traintype), 1)
+          }
+        }
+
+        this.setData({
+          checkedTrainTypes: checkedList
+        })
+
+        break;
+      }
+    }
+
+    this.filterProductTypes();
+  },
+
+  filterProductTypes: function() {
+    if (this.data.checkedTrainTypes.length > 0) {
+      var that = this;
+      wx.request({
+        url: app.globalData.interfaceUrl + 'zc/getProductTypesByPlatforms?platforms=' + this.data.checkedTrainTypes.toString(),
+        data: {},
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var typeList = res.data.data;
+          var splitTypes = [];
+          for (var i = 0; i < that.data.orgProductTypes.length; i++) {
+            var isHaveType = false;
+            for (var j = 0; j < typeList.length; j++) {
+              if (typeList[j].producttype == that.data.orgProductTypes[i].producttype) {
+                isHaveType = true;
+                break;
+              }
+            }
+            if (isHaveType) {
+              splitTypes.push(that.data.orgProductTypes[i]);
+            }
+          }
+          var defaultType = { id: "0", producttype: "", typename: "请选择" }
+          splitTypes.unshift(defaultType)
+          that.setData({
+            productTypes: splitTypes
+          })
+        },
+        complete: function () {
+        }
+      })
+    } else {
+      this.setData({
+        productTypes: this.data.orgProductTypes
+      })
+    }
   },
   bindKeyInput: function (e) {
     this.setData({
@@ -97,7 +167,7 @@ Page({
     this.toSearchResult()
   },
   toSearchResult: function () {
-    if (this.data.searchText || this.data.productType) {
+    if (this.data.searchText || this.data.productType || this.data.checkedTrainTypes.length > 0) {
       try {
         var value = wx.getStorageSync('historyList')
         if (value) {
@@ -156,7 +226,7 @@ Page({
           conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
         } else if (this.data.productType == '11') {
           conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
-          conditionText += "kd" + "#" + this.data.zxgkd + "#" + this.data.zdkd + "|"
+          conditionText += "kd" + "#" + this.data.zxkd + "#" + this.data.zdkd + "|"
           conditionText += "gd" + "#" + this.data.zxgd + "#" + this.data.zdgd + "|"
         }
       }
@@ -212,8 +282,13 @@ Page({
         }
       }
 
+      var platforms = "";
+      if (this.data.checkedTrainTypes.length > 0) {
+        platforms = this.data.checkedTrainTypes.join(",");
+      }
+
       wx.navigateTo({
-        url: '../searchResult/searchResult?productName=' + this.data.searchText + '&platform=' + this.data.checkedTrainType + '&productType=' + this.data.productType + '&conditionText=' + conditionText
+        url: '../searchResult/searchResult?productName=' + this.data.searchText + '&platform=' + platforms + '&productType=' + this.data.productType + '&conditionText=' + conditionText
       })
       /*wx.navigateTo({
         url: '../searchResultForm/searchResultForm?productName=' + this.data.searchText + '&platform=' + this.data.checkedTrainType + '&productType=' + this.data.productType + '&conditionText=' + conditionText
@@ -256,6 +331,27 @@ Page({
         productType: productType
       })
     }
+
+    var trainType = options.traintype;
+    if (trainType != null && trainType != "") {
+      var trainTypeList = this.data.checkedTrainTypes;
+      trainTypeList.push(trainType);
+      this.setData({
+        checkedTrainType: trainType,
+        checkedTrainTypes: trainTypeList
+      })
+
+      for (var i = 0; i < this.data.traintypes.length; i ++) {
+        if (this.data.traintypes[i].traintype == trainType) {
+          var attr = "traintypes[" + i + "].checked";
+          this.setData({
+            [attr]: true
+          })
+
+          break;
+        }
+      }
+    }
     this.loadHistory();
     var that = this;
     // 查询产品类型
@@ -273,7 +369,8 @@ Page({
         var defaultType = { id: "0", producttype : "", typename : "请选择"}
         res.data.data.unshift(defaultType)
         that.setData({
-          productTypes: res.data.data
+          productTypes: res.data.data,
+          orgProductTypes: res.data.data
         });
         if (productType != null && productType != "") {
           that.setData({
@@ -288,6 +385,8 @@ Page({
             }
           }
         }
+
+        that.filterProductTypes();
       },
       complete: function () {
         wx.hideLoading();
