@@ -15,7 +15,7 @@
                         <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">轨道交通</view>
+                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">轨道车辆</view>
                     </view>
                     <view class="tabs-item">
                         <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">线路</view>

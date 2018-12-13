@@ -2,12 +2,12 @@
 <view class="container">
   <!-- 首页 -->
   <view wx:if="{{tabbar1}}" class="index wexui-tabbar">
-    <view class="header-bg tabbar-content" style="background-image:  url( https://mlhdkj.com/weixin/sdFile/zc/header-bg.png); background-repeat:no-repeat;"> 
+    <view class="header-bg tabbar-content" style="background-image:  url( https://guidaogouwuche.com/wx/storage/fetch/header-bg.png); background-repeat:no-repeat;"> 
     
       <view class="wexui-searchbox searchinput" style="position:fixed;z-index: 999;width:95%;padding-left:20rpx;padding-right:20rpx;padding-top:0;padding-bottom:0;opacity:0.95;">
           <view class="searchbox-input index-searchbox-input">
               <icon type="search" size="16" />
-              <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
+              <input type="text" placeholder="搜索产品名称/物资编号" bindfocus="toSearchPage"/>
           </view>
       </view>
       <view class="page-section page-section-spacing swiper" style="padding-top:110rpx;">
@@ -46,7 +46,7 @@
             <scroll-view scroll-x="true">
                 <view class="tabs-header tabs-index">
                     <view class="tabs-item">
-                        <view class="tabs-title tabs-index {{tabIndex=='01'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="01" style='color:black;'>轨道交通</view>
+                        <view class="tabs-title tabs-index {{tabIndex=='01'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="01" style='color:black;'>轨道车辆</view>
                     </view>
                     <view class="tabs-item">
                         <view class="tabs-title tabs-index {{tabIndex=='03'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="03" style='color:black;'>线路</view>

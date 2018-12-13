@@ -11,6 +11,7 @@
     "pages/searchResult/searchResult",
     "pages/playVideo/playVideo",
     "pages/searchResultForm/searchResultForm",
+    "pages/moreVideo/moreVideo",
     "pages/train/train"
   ],
   "window":{

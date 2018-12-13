@@ -3627,8 +3627,8 @@ icon {
 
 .wexui-searchbox .searchbox-input icon {
     position: absolute;
-    top: 40%;
-    left:35%;
+    top: 35%;
+    left:25%;
 }
 
 .wexui-searchbox .searchbox-input input {

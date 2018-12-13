@@ -11,7 +11,7 @@
     <view>
     <!--分类导航栏-->
     <scroll-view class='left-navbar' scroll-y="true">
-      <view wx:for="{{allproducttypes}}" class="{{ currentTab == item.producttype ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != item.producttype ? 'navbarTap':'' }}" id="{{index}}" data-producttype="{{item.producttype}}">{{item.productname}}</view>
+      <view wx:for="{{allproducttypes}}" class="{{ currentTab == item.producttype ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != item.producttype ? 'navbarTap':'' }}" id="{{index}}" data-producttype="{{item.producttype}}" style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">{{item.typename}}</view>
     </scroll-view>
     <scroll-view id="right" scroll-y="true" scroll-top="{{scrollTop}}">
       <!--商品展示-->

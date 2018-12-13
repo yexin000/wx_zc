@@ -76,7 +76,7 @@
                       <view class="example-content">
                         <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
                           <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
-                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct" style="width:200px;display: -webkit-box;word-break: break-all;text-overflow: ellipsis;overflow: hidden;-webkit-box-orient: vertical;-webkit-line-clamp:2;">{{train.name}}</view>
                           </view>
                         </view>
                       </view>

@@ -5,7 +5,7 @@
           <view class="list-logo">
               <image style="width:25rpx;" src="../images/list-header.png" />
           </view>
-          <view class="list-desc">公司简介</view>
+          <view class="list-desc">公司简介</view><view class="list-desc" style="margin-left:55%;" bindtap="toMoreVideo">更多介绍></view>
       </view>
       <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/advertise_video.mp4" binderror="videoErrorCallback" controls></video>
       <view class="wexui-article">
@@ -35,7 +35,7 @@
       <view class="wexui-article">
         <view class="article-section">
             <view class="article-section-image">
-                <image src="https://mlhdkj.com/weixin/sdFile/zc/we-company.png"  />
+                <image src="https://guidaogouwuche.com/wx/storage/fetch/we-company.png"  />
             </view>
         </view>
       </view>

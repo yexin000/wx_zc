@@ -51,7 +51,7 @@
                 </view>
                 <view class="train-list-desc">{{typeItem.typename}}</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
                 <view wx:if="{{productItem.producttype == typeItem.producttype &&  (tabIndex=='00' || tabIndex==productItem.platform)}}" class="wexui-list list-arrow">
                   <view class="list-content-searchresult" data-productid="{{productItem.id}}" bindtap="toProductDetail">{{productItem.productname}}</view>
                 </view>
@@ -62,348 +62,418 @@
               </view>
             </view>
           </view>
-          <view wx:if="{{showForm == true}}" class="tabs-content">
+          <view wx:if="{{showForm == true}}" class="tabs-content" style="margin-top:10rpx;">
             <view wx:if="{{formType == '01'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">装配长度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">装配长度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">径向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.zpcd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zpcd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.jxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '02'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">高度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">受压荷载/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">刚度</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">受压荷载</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.gd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.syhz}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gangd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.syhz}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '03'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">自由高/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">轴向刚度/kN/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;"></view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">自由高</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">轴向刚度</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">结构形式</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">产品名称</view>
               </view>
               <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zyg}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zhouxgd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;"></view>
+                <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zyg}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zhouxgd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.structtype}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.productname}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '04'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">标准高度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">空载/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">标准高度H</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">空载</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">重量</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.bzgd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.kz}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.bzgd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kz}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.weight}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '05'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">连杆加载点间距/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">扭杆臂长度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">空载/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">连杆加载点间距L1</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">支撑座间距L2</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">扭杆臂长度L3</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">系统刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.lgjzdjj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zczjj}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.ngbcd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.lgjzdjj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zczjj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.ngbcd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.xtgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '06'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">连杆中心距/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">杆体球头外径/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">孔类型</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">连杆中心距L1</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">杆体球头外径D1</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">孔类型</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">径向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.lgzxj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.gtqtwj}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.klx}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.lgzxj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gtqtwj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.klx}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.jxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '07'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">宽度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">高度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">纵向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.kd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.gd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zongxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '08'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">宽度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.kd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '09'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">最大荷载/kN</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">高度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">空载/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">空载</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zdhz}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.gd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.kz}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kz}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '10'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">宽度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">高度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">V形角度</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">纵向刚度</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">空载</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.kd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.gd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.vxjd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zongxgd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kz}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '11'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">宽度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">高度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">产品名称</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.kd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.gd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.productname}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '12'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">高度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">垂向荷载/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向荷载</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.gd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.cxhz}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxhz}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '13' || formType == '14'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">匹配钢轨型号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">自由高/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">安装孔距
-/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">自由高H</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">刚度</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">安装孔距</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">匹配钢轨型号</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.ppggxh}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zyg}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.azkj}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zyg}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.jgd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.azkj}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.ppggxh}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '15'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">齿梳宽度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">安装孔位
-/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">齿梳宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">安装孔位</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cskd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.azkw}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cskd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.azkw}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
                 </view>
               </view>
             </view>
-            <view wx:if="{{formType == '16' || formType == '17' || formType == '18' || formType == '19' || formType == '21' || formType == '23'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">宽度/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">高度/mm</view>
+            <view wx:if="{{formType == '16' || formType == '17'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">静刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.kd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.gd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.jgd}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '18'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">直径D</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zhij}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '19'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">竖向承载力</view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.sxczl}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '20'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">阻尼系数</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">速度指数</view>
-                  <view class="flex-item" style="font-size:25rpx;">阻尼力/kN</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">阻尼力</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">阻尼系数</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">行程</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">速度指数</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.znxs}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.sdzs}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.znl}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.znl}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.znxs}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.xc}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.sdzs}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '21'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">宽度B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度C</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">半径D</view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.bj}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '22'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">高度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">安装螺纹规格</view>
-                  <view class="flex-item" style="font-size:25rpx;">垂向刚度/kN/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">螺纹规格</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.gd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.azlwgg}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.cxgd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.azlwgg}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '23'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">叠簧直径F</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">高度B</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.dhzj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '24'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">内径/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">外径/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">长度/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">外径D</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">内径d</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度L</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">垂向刚度</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.nj}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.wj}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.cd}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.nj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
                 </view>
               </view>
             </view>
             <view wx:if="{{formType == '25'}}" class="example-content">
-              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;">
-                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">名称</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">编号</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">长度/mm</view>
-                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">直径/mm</view>
-                  <view class="flex-item" style="font-size:25rpx;">安装螺栓/mm</view>
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">物资编号</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">长度A</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">直径B</view>
+                  <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">安装螺栓</view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">产品名称</view>
               </view>
-              <view wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
-                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:center;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
-                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productname}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;">{{productItem.zhij}}</view>
-                    <view class="flex-item" style="font-size:25rpx;">{{productItem.azls}}</view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.zhij}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.azls}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.productname}}</view>
                 </view>
               </view>
             </view>

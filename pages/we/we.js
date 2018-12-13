@@ -42,6 +42,11 @@ Page({
     email: "",
     content: ""
   },
+  toMoreVideo: function() {
+    wx.navigateTo({
+      url: '../moreVideo/moreVideo'
+    })
+  },
   phoneCall: function(e) {
     var phonenum = e.currentTarget.dataset.phonenum;
     wx.makePhoneCall({

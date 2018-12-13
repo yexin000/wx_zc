@@ -8,6 +8,14 @@ Page({
    */
   data: {
     historyList : [],
+    fatherProductTypes : [
+      [ { fatherTypeId: "0", typename: "请选择" },
+        { fatherTypeId: "1", typename: "轨道车辆"},
+        { fatherTypeId: "2", typename: "线路"},
+        { fatherTypeId: "3", typename: "桥建"},
+        { fatherTypeId: "4", typename: "风电"}],
+      []
+    ],
     traintypes : [
       { traintype: "01", traintypeName: "客车(动车组)", checked: false},
       { traintype: "02", traintypeName: "机车", checked: false},
@@ -23,8 +31,10 @@ Page({
     orgProductTypes : [],
     productIndex : 0,
     productType : null,
+    platforms : [],
     searchText : '',
     showHistory : false,
+    multiIndex : [0,0],
     zdwj: null,
     zxwj: null,
     zdbzgd: null,
@@ -59,11 +69,46 @@ Page({
     zxcd: null,
     zdkd: null,
     zxkd: null,
+    zxdhzj: null,
+    zddhzj: null,
+    zxnj: null,
+    zdnj: null,
+    zxjgd: null,
+    zdjgd: null,
+    zxcskd: null,
+    zdcskd: null,
+    zxsxczl: null,
+    zdsxczl: null,
+    zxznl: null,
+    zdznl: null,
+    zxznxs: null,
+    zdznxs: null,
+    zxsdzs: null,
+    zdsdzs: null,
     checkedTrainType : "",
     checkedTrainTypes: []
   },
   checkTrainType: function(e) {
     var traintype = e.currentTarget.dataset.traintype;
+    
+    if (this.data.platforms.length > 0) {
+      var isInList = false;
+      for (var n = 0; n < this.data.platforms.length; n ++) {
+        if (this.data.platforms[n] == traintype) {
+          isInList = true;
+          break;
+        }
+      }
+      if (!isInList) {
+        wx.showToast({
+          title: '该应用平台下无此产品类型的产品',
+          icon: 'none',
+          duration: 1000
+        })
+        return;
+      }
+    }
+
     if (this.data.checkedTrainType == traintype) {
       this.setData({
         checkedTrainType: ""
@@ -101,7 +146,104 @@ Page({
       }
     }
 
-    this.filterProductTypes();
+    //this.filterProductTypes();
+  },
+
+  bindMultiPickerChange: function (e) {
+    this.setData({
+      "multiIndex[0]": e.detail.value[0],
+      "multiIndex[1]": e.detail.value[1]
+    })
+  },
+
+  bindMultiPickerColumnChange: function (e) {
+    switch (e.detail.column) {
+      case 0:
+        if (e.detail.value > 0) {
+          var list = []
+          for (var i = 0; i < this.data.orgProductTypes.length; i++) {
+            if (this.data.orgProductTypes[i].fatherTypeId == this.data.fatherProductTypes[0][e.detail.value].fatherTypeId) {
+              list.push(this.data.orgProductTypes[i])
+            }
+          }
+          this.setData({
+            "fatherProductTypes[1]": list,
+            "multiIndex[0]": e.detail.value,
+            "multiIndex[1]": 0
+          })
+          for (var i = 0; i < this.data.orgProductTypes.length; i++) {
+            if (this.data.orgProductTypes[i].producttype == this.data.fatherProductTypes[1][0].producttype) {
+              this.setData({
+                productType: this.data.orgProductTypes[i].producttype
+              })
+              break;
+            }
+          }
+        } else {
+          this.setData({
+            "fatherProductTypes[1]": [],
+            "multiIndex[0]": 0,
+            "multiIndex[1]": 0,
+            productType: ""
+          })
+        }
+        break;
+      case 1:
+        for (var i = 0; i < this.data.orgProductTypes.length; i ++) {
+          if (this.data.orgProductTypes[i].producttype == this.data.fatherProductTypes[1][e.detail.value].producttype) {
+            this.setData({
+              productType: this.data.orgProductTypes[i].producttype
+            })
+            break;
+          }
+        }
+        this.setData({
+          "multiIndex[1]": e.detail.value
+        })
+        break;
+    }
+
+    if (this.data.productType != null && this.data.productType != "") {
+      var that = this;
+      wx.request({
+        url: app.globalData.interfaceUrl + 'zc/getPlatformsByProductType?productType=' + this.data.productType,
+        data: {},
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          if(res.data && res.data.length > 0) {
+            that.setData({
+              platforms: res.data
+            })
+            var checkedPlatforms = [];
+            for (var i = 0; i < that.data.traintypes.length; i ++) {
+              if (that.data.traintypes[i].checked) {
+                var isInList = false;
+                for (var j = 0; j < res.data.length; j++) {
+                  if (that.data.traintypes[i].traintype == res.data[j]) {
+                    isInList = true;
+                    break;
+                  }
+                }
+                if (!isInList) {
+                  var attr = "traintypes[" + i + "].checked";
+                  that.setData({
+                    [attr]: false
+                  })
+                }
+              }
+            }
+          }
+        },
+        complete: function () {
+        }
+      })
+    } else {
+      this.setData({
+        platforms : []
+      })
+    }
   },
 
   filterProductTypes: function() {
@@ -141,6 +283,21 @@ Page({
       this.setData({
         productTypes: this.data.orgProductTypes
       })
+    }
+
+    if (this.data.productTypes.length > 0) {
+      for (var m = 0; m < this.data.productTypes.length; m++) {
+        if (this.data.productTypes[m].fatherTypeId == this.data.fatherProductTypes[0][0].fatherTypeId) {
+          var array = this.data.fatherProductTypes[1];
+          array.push(this.data.productTypes[m]);
+          var attr = "fatherProductTypes[1]";
+          this.setData({
+            "fatherProductTypes[1]": array,
+            "multiIndex[0]": 0,
+            "multiIndex[1]": 0
+          })
+        }
+      }
     }
   },
   bindKeyInput: function (e) {
@@ -224,11 +381,41 @@ Page({
         } else if (this.data.productType == '10') {
           conditionText += "vxjd" + "#" + this.data.zxvxjd + "#" + this.data.zdvxjd + "|"
           conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
-        } else if (this.data.productType == '11') {
+        } else if (this.data.productType == '11' || this.data.productType == '12' || this.data.productType == '25' || this.data.productType == '18' || this.data.productType == '21') {
           conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
           conditionText += "kd" + "#" + this.data.zxkd + "#" + this.data.zdkd + "|"
           conditionText += "gd" + "#" + this.data.zxgd + "#" + this.data.zdgd + "|"
-        }
+        } else if (this.data.productType == '23') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
+          conditionText += "dhzj" + "#" + this.data.zxdhzj + "#" + this.data.zddhzj + "|"
+        } else if (this.data.productType == '24') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
+          conditionText += "wj" + "#" + this.data.zxwj + "#" + this.data.zdwj + "|"
+          conditionText += "nj" + "#" + this.data.zxnj + "#" + this.data.zdnj + "|"
+        } else if (this.data.productType == '22') {
+          conditionText += "gd" + "#" + this.data.zxgd + "#" + this.data.zdgd + "|"
+          conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
+        } else if (this.data.productType == '13' || this.data.productType == '14') {
+          conditionText += "zyg" + "#" + this.data.zxzyg + "#" + this.data.zdzyg + "|"
+          conditionText += "jgd" + "#" + this.data.zxjgd + "#" + this.data.zdjgd + "|"
+        } else if (this.data.productType == '15') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "cskd" + "#" + this.data.zxcskd + "#" + this.data.zdcskd + "|"
+        } else if (this.data.productType == '16' || this.data.productType == '17') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "jgd" + "#" + this.data.zxjgd + "#" + this.data.zdjgd + "|"
+        } else if (this.data.productType == '19') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "kd" + "#" + this.data.zxkd + "#" + this.data.zdkd + "|"
+          conditionText += "gd" + "#" + this.data.zxgd + "#" + this.data.zdgd + "|"
+          conditionText += "sxczl" + "#" + this.data.zxsxczl + "#" + this.data.zdsxczl + "|"
+        } else if (this.data.productType == '24') {
+          conditionText += "znl" + "#" + this.data.zxznl + "#" + this.data.zdznl + "|"
+          conditionText += "znxs" + "#" + this.data.zxznxs + "#" + this.data.zdznxs + "|"
+          conditionText += "sdzs" + "#" + this.data.zxsdzs + "#" + this.data.zdsdzs + "|"
+        } 
       }
     
       if ("空簧" == this.data.searchText || "空气簧" == this.data.searchText) {
@@ -386,6 +573,32 @@ Page({
           }
         }
 
+        var defaultProductType = null;
+        for (var i = 0; i < that.data.orgProductTypes.length; i++) {
+          if (that.data.orgProductTypes[i].producttype == that.data.productType) {
+            defaultProductType = that.data.orgProductTypes[i];
+            break;
+          }
+        }
+        if (defaultProductType != null) {
+          var list = []
+          var position = 0
+          var defaultPosition = 0
+          for (var i = 0; i < that.data.orgProductTypes.length; i++) {
+            if (that.data.orgProductTypes[i].fatherTypeId == defaultProductType.fatherTypeId) {
+              list.push(that.data.orgProductTypes[i])
+              if (that.data.orgProductTypes[i].producttype == defaultProductType.producttype) {
+                defaultPosition = position
+              }
+              position++
+            }
+          }
+          that.setData({
+            "fatherProductTypes[1]": list,
+            "multiIndex[0]": defaultProductType.fatherTypeId,
+            "multiIndex[1]": defaultPosition
+          })
+        }
         that.filterProductTypes();
       },
       complete: function () {
@@ -623,6 +836,102 @@ Page({
   zdjxgdInput: function (e) {
     this.setData({
       zdjxgd: e.detail.value
+    })
+  },
+
+  zxdhzjInput: function(e) {
+    this.setData({
+      zxdhzj: e.detail.value
+    })
+  },
+
+  zddhzjInput: function (e) {
+    this.setData({
+      zddhzj: e.detail.value
+    })
+  },
+
+  zxnjInput: function (e) {
+    this.setData({
+      zxnj: e.detail.value
+    })
+  },
+  
+  zdnjInput: function (e) {
+    this.setData({
+      zdnj: e.detail.value
+    })
+  },
+
+  zxjgdInput: function (e) {
+    this.setData({
+      zxjgd: e.detail.value
+    })
+  },
+  
+  zdjgdInput: function (e) {
+    this.setData({
+      zdjgd: e.detail.value
+    })
+  },
+
+  zxcskdInput: function (e) {
+    this.setData({
+      zxcskd: e.detail.value
+    })
+  },
+  
+  zdcskdInput: function (e) {
+    this.setData({
+      zdcskd: e.detail.value
+    })
+  },
+
+  zxsxczlInput: function (e) {
+    this.setData({
+      zxsxczl: e.detail.value
+    })
+  },
+  
+  zdsxczlInput: function (e) {
+    this.setData({
+      zdsxczl: e.detail.value
+    })
+  },
+
+  zxznlInput: function (e) {
+    this.setData({
+      zxznl: e.detail.value
+    })
+  },
+  
+  zdznlInput: function (e) {
+    this.setData({
+      zdznl: e.detail.value
+    })
+  },
+
+  zxznxsInput: function (e) {
+    this.setData({
+      zxznxs: e.detail.value
+    })
+  },
+
+  zdznxsInput: function (e) {
+    this.setData({
+      zdznxs: e.detail.value
+    })
+  },
+  
+  zxsdzsInput: function (e) {
+    this.setData({
+      zxsdzs: e.detail.value
+    })
+  },
+  
+  zdsdzsInput: function (e) {
+    this.setData({
+      zdsdzs: e.detail.value
     })
   },
 

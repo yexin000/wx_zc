@@ -43,7 +43,7 @@ Page({
           prop.productlist = [];
           if (this.data.productPropList[i].productlist != null && this.data.productPropList[i].productlist.length > 0) {
             for (var j = 0; j < this.data.productPropList[i].productlist.length; j ++) {
-              if (this.data.productPropList[i].productlist[j].productname.indexOf(filterValue) >= 0) {
+              if (this.data.productPropList[i].productlist[j].typename.indexOf(filterValue) >= 0) {
                 prop.productlist.push(this.data.productPropList[i].productlist[j]);
               }
             }
@@ -104,7 +104,6 @@ Page({
           productPropList: res.data.data.productPropList,
           productShowList: res.data.data.productPropList
         });
-        console.log(res.data)
       },
       complete: function () {
         wx.hideLoading();
@@ -115,7 +114,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     var producttype = options.producttype;
+    // 查询产品类型
+    wx.showLoading({
+      title: "加载中"
+    });
+    wx.request({
+      url: app.globalData.interfaceUrl + 'zc/getProductTypes',
+      data: {},
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          allproducttypes: res.data.data
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
     this.getProductList(producttype);
     this.setData({
       currentTab: producttype,

@@ -1,0 +1,6 @@
+<view class="container" style="padding:0;">
+  <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;margin-top:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/kcgng.mp4" binderror="videoErrorCallback" controls></video>
+  <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;margin-top:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/kqth.mp4" binderror="videoErrorCallback" controls></video>
+  <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;margin-top:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/xjt.mp4" binderror="videoErrorCallback" controls></video>
+  <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;margin-top:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/zxth.mp4" binderror="videoErrorCallback" controls></video>
+</view>

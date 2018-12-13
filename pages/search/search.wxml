@@ -20,15 +20,32 @@
     <view class="wexui-searchbox searchinput-lr" style="margin-top:110rpx;">
       <button class="label-btn">产品类型</button>
     </view>
-    <picker mode="selector" class="searchinput-mlr" value="{{productIndex}}" range="{{productTypes}}" range-key="typename" bindchange="bindChange">
+    <picker mode="selector" class="searchinput-mlr" value="{{productIndex}}" range="{{productTypes}}" range-key="typename" bindchange="bindChange" style="display:none;">
         <view class="wexui-list list-form list-arrow list-active">
             <view class="list-content">{{productTypes[productIndex].typename}}</view>
         </view>
     </picker>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01'}}">
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" range-key="typename" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{fatherProductTypes}}" class="searchinput-mlr">
+　　<view class="wexui-list list-form list-arrow list-active">
+      {{fatherProductTypes[0][multiIndex[0]].typename}} > {{fatherProductTypes[1][multiIndex[1]].typename}}
+    </view>
+</picker>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '24'}}">
+      <button class="label-btn">内径/mm</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '24'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小高度" value="{{zxnj}}" bindblur="zxnjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大高度" value="{{zdnj}}" bindblur="zdnjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01' || productType == '12' || productType == '24'}}">
       <button class="label-btn">外径/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '04' || productType == '09' || productType == '01' || productType == '12' || productType == '24'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小外径" value="{{zxwj}}" bindblur="zxwjInput"/>
       </view>
@@ -121,10 +138,10 @@
           <input type="digit" placeholder="最大刚度" value="{{zdzongxgd}}" bindblur="zdzongxgdInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11' || productType == '25' || productType == '23' || productType == '24' || productType == '15' || productType == '18' || productType == '19' || productType == '21'}}">
       <button class="label-btn">长度/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11' || productType == '25' || productType == '23' || productType == '24' || productType == '15' || productType == '18' || productType == '19' || productType == '21'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小长度" value="{{zxcd}}" bindblur="zxcdInput"/>
       </view>
@@ -133,10 +150,10 @@
           <input type="digit" placeholder="最大长度" value="{{zdcd}}" bindblur="zdcdInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11' || productType == '25' || productType == '18' || productType == '19' || productType == '21'}}">
       <button class="label-btn">宽度/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '11' || productType == '25' || productType == '18' || productType == '19' || productType == '21'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小宽度" value="{{zxkd}}" bindblur="zxkdInput"/>
       </view>
@@ -145,10 +162,10 @@
           <input type="digit" placeholder="最大宽度" value="{{zdkd}}" bindblur="zdkdInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11' || productType == '12' || productType == '25' || productType == '22' || productType == '18' || productType == '19' || productType == '21'}}">
       <button class="label-btn">高度/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '02' || productType == '08' || productType == '09' || productType == '11' || productType == '12' || productType == '25' || productType == '22' || productType == '18' || productType == '19' || productType == '21'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小高度" value="{{zxgd}}" bindblur="zxgdInput"/>
       </view>
@@ -169,16 +186,28 @@
           <input type="digit" placeholder="最大刚度" value="{{zdgangd}}" bindblur="zdgangdInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03' || productType == '13' || productType == '14'}}">
       <button class="label-btn">自由高/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03' || productType == '13' || productType == '14'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小高度" value="{{zxzyg}}" bindblur="zxzygInput"/>
       </view>
       <text>~</text>
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最大高度" value="{{zdzyg}}" bindblur="zdzygInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '13' || productType == '14' || productType == '16' || productType == '17'}}">
+      <button class="label-btn">静刚度/kN/mm</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '13' || productType == '14' || productType == '16' || productType == '17'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小刚度" value="{{zxjgd}}" bindblur="zxjgdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大刚度" value="{{zdjgd}}" bindblur="zdjgdInput"/>
       </view>
     </view>
     <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '03'}}">
@@ -193,10 +222,10 @@
           <input type="digit" placeholder="最大刚度" value="{{zdzhouxgd}}" bindblur="zdzhouxgdInput"/>
       </view>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10' || productType == '23' || productType == '24' || productType == '22'}}">
       <button class="label-btn">垂向刚度/kN/mm</button>
     </view>
-    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10'}}">
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '08' || productType == '09' || productType == '10' || productType == '23' || productType == '22'}}">
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最小刚度" value="{{zxcxgd}}" bindblur="zxcxgdInput"/>
       </view>
@@ -227,6 +256,78 @@
       <text>~</text>
       <view class="searchbox-input index-searchbox-input">
           <input type="digit" placeholder="最大刚度" value="{{zdjxgd}}" bindblur="zdjxgdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '23'}}">
+      <button class="label-btn">叠簧直径/kN/mm</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '23'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小直径" value="{{zxdhzj}}" bindblur="zxdhzjInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大直径" value="{{zddhzj}}" bindblur="zddhzjInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '15'}}">
+      <button class="label-btn">齿梳宽度/kN/mm</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '15'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小宽度" value="{{zxcskd}}" bindblur="zxcskdInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大宽度" value="{{zdcskd}}" bindblur="zdcskdInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '19'}}">
+      <button class="label-btn">竖向承载力/kN</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '19'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小承载力" value="{{zxsxczl}}" bindblur="zxsxczlInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大承载力" value="{{zdsxczl}}" bindblur="zdsxczlInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <button class="label-btn">阻尼力/kN</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小阻尼力" value="{{zxznl}}" bindblur="zxznlInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大阻尼力" value="{{zdznl}}" bindblur="zdznlInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <button class="label-btn">阻尼系数</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小系数" value="{{zxznxs}}" bindblur="zxznxsInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大系数" value="{{zdznxs}}" bindblur="zdznxsInput"/>
+      </view>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <button class="label-btn">速度指数</button>
+    </view>
+    <view class="wexui-searchbox searchinput-lr" wx:if="{{productType == '20'}}">
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最小指数" value="{{zxsdzs}}" bindblur="zxsdzsInput"/>
+      </view>
+      <text>~</text>
+      <view class="searchbox-input index-searchbox-input">
+          <input type="digit" placeholder="最大指数" value="{{zdsdzs}}" bindblur="zdsdzsInput"/>
       </view>
     </view>
 
