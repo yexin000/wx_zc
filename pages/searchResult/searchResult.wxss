@@ -1,3 +1,21 @@
 /* pages/searchResult/searchResult.wxss */
 @import "../../wexUI/wexUI.wxss";
 @import "../index/index.wxss";
+
+.sort-icon-asc {
+  width: 16px;
+  height: 16px;
+}
+
+.sort-icon-desc {
+  width: 16px;
+  height: 16px;
+}
+
+.table-header {
+  border-right: solid 1rpx #8e8e90;
+  font-size:25rpx;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}

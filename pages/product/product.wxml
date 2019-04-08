@@ -1,5 +1,5 @@
 <view class="container">
-<view class="index wexui-tabbar">
+  <view class="index wexui-tabbar">
     <view class="header-product-bg tabbar-content" style="background-color:#c60018; background-repeat:no-repeat;">
       <view class="wexui-searchbox searchinput" style="position:fixed;z-index: 999;opacity:0.95;width:95%;">
           <view class="searchbox-input index-searchbox-input">
@@ -7,7 +7,7 @@
               <input type="text" placeholder="搜索产品名称" bindfocus="toSearchPage"/>
           </view>
       </view>
-      <view class="example-content" style="padding-top:110rpx;">
+      <view class="example-content" style="padding-top:110rpx;padding-bottom:80rpx;">
         <view class="wexui-tabs">
             <scroll-view scroll-x="true">
                 <view class="tabs-header">
@@ -93,6 +93,10 @@
                   </view>
                 </view>
             </view>
+        </view>
+        <view class="wexui-footer" style='margin-top:20rpx;margin-bottom:10rpx;'>
+          <view class="footer-text">株洲时代新材料科技股份有限公司·轨道交通事业部</view>
+          <view class="footer-text">版权所有，违者必究</view>
         </view>
       </view>
     </view>

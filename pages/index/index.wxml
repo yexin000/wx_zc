@@ -116,6 +116,10 @@
                 </view>
             </view>
         </view>
+        <view class="wexui-footer" style='margin-top:20rpx;margin-bottom:10rpx;'>
+          <view class="footer-text">株洲时代新材料科技股份有限公司·轨道交通事业部</view>
+          <view class="footer-text">版权所有，违者必究</view>
+        </view>
       </view>
     </view>
   </view>

@@ -7,7 +7,7 @@
           </view>
           <view class="list-desc">公司简介</view><view class="list-desc" style="margin-left:55%;" bindtap="toMoreVideo">更多介绍></view>
       </view>
-      <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/advertise_video.mp4" binderror="videoErrorCallback" controls></video>
+      <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/advertise_video.mp4" binderror="videoErrorCallback" controls poster="https://guidaogouwuche.com/wx/storage/fetch/sdxc_cover.jpg"></video>
       <view class="wexui-article">
         <view class="article-section">
             <view class="article-section-content">
@@ -106,4 +106,24 @@
         <button class="btn btn-success size-big btn-block" style="line-height:1.8;" formType="submit">提交</button>
       </view>
     </form>
+    <view class="wexui-list wexui-list-my list-active wexui-list-my-team">
+        <view class="list-logo">
+            <image style="width:25rpx;" src="../images/list-header.png" />
+        </view>
+        <view class="list-desc">项目团队信息</view>
+        <button class="btn btn-success size-small btn-block" style="line-height:0.8;margin-top:0rpx;margin-left:45%;" bindtap='toTeamPage'>查看详情</button>
+    </view>
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+      <view class="we-list-desc">总策划：刘文松</view>
+    </view>
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+      <view class="we-list-desc">总指导：林胜、黄友剑</view>
+    </view>
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+      <view class="we-list-desc">总执行：张运珍</view>
+    </view>
+    <view class="wexui-footer" style='margin-top:10rpx;margin-bottom:10rpx;'>
+        <view class="footer-text">株洲时代新材料科技股份有限公司·轨道交通事业部</view>
+        <view class="footer-text">版权所有，违者必究</view>
+    </view>
 </view>

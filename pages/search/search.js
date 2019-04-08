@@ -25,7 +25,8 @@ Page({
       { traintype: "06", traintypeName: "风电", checked: false},
       { traintype: "07", traintypeName: "轨道线路", checked: false},
       { traintype: "08", traintypeName: "桥建", checked: false},
-      { traintype: "09", traintypeName: "其他", checked: false}
+      { traintype: "09", traintypeName: "其他", checked: false},
+      { traintype: "10", traintypeName: "检修市场", checked: false }
     ],
     productTypes : [],
     orgProductTypes : [],

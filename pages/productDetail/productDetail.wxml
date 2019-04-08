@@ -7,10 +7,11 @@
                 <image class="article-section-image" src="{{realpic}}" data-src="{{realpic}}" bindtap="showImage" mode="aspectFit"></image>
                 <view class="example-title">实物图</view>
                 <image class="article-section-image" src="{{snapshot}}" data-src="{{snapshot}}"  bindtap="showImage" mode="aspectFit"></image>
-                <view class="example-title">示意图</view>
+                <view wx:if="{{productInfo.producttype == '26'}}" class="example-title">检修内容</view>
+                <view wx:else class="example-title">示意图</view>
             </view>
             <view class="wexui-list">
-              <view class="list-content">物资编号:{{productInfo.productnum}}</view>
+              <view>物资编号:{{productInfo.productnum}}</view>
               <view class="list-content"></view>
             </view>
             <view class="wexui-list">
@@ -25,12 +26,13 @@
             <view class="wexui-article center margin-top-15">
               <view class="h5">性能参数</view>
               <view class="wexui-list" wx:if="{{productInfo.wj != null}}">
-                <view wx:if="{{productInfo.producttype == '24'}}" class="list-content">外径D/mm</view>
+                <view wx:if="{{productInfo.producttype == '24'}}" style="text-align:left;padding-left:10%;" class="list-content">外径D/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">外径A/mm</view>
                 <view class="list-content">{{productInfo.wj}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.nj != null}}">
-                <view class="list-content" style="text-align:left;padding-left:10%;">内径d/mm</view>
+                <view class="list-content" wx:if="{{productInfo.producttype == '01'}}" style="text-align:left;padding-left:10%;">内径B/mm</view>
+                <view class="list-content" wx:else style="text-align:left;padding-left:10%;">内径d/mm</view>
                 <view class="list-content">{{productInfo.nj}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.bzgd != null}}">

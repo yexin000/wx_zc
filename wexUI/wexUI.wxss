@@ -2209,6 +2209,25 @@ icon {
   position: static;
 }
 
+.wexui-list-my-team {
+  width:100%;
+  margin-left:40rpx;
+}
+
+.wexui-list-my-team-desc {
+  width:100%;
+  margin-left:120rpx;
+  padding-top:0;
+}
+
+.wexui-list-my-team-info {
+  width: 90%;
+  padding-top:10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 32rpx;
+}
+
 .wexui-list.list-active:active {
     background: #f8f8f8;
 }

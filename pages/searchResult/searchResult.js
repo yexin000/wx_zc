@@ -13,7 +13,33 @@ Page({
     productListData: [],
     productList: [],
     showForm: false,
-    formType: null
+    formType: null,
+    productName: null,
+    productType: null,
+    conditionText: null,
+    platform: null,
+    sortAttr: 'productnum',
+    orderType: 'asc'
+  },
+  orderChange(e) {
+    let sortAttr = e.currentTarget.dataset.attr;
+    let orderType = this.data.orderType;
+    if (sortAttr == this.data.sortAttr) {
+      if (orderType == 'asc') {
+        orderType = 'desc';
+      } else {
+        orderType = 'asc';
+      }
+    } else {
+      orderType = 'asc';
+    }
+    
+    this.setData({
+      sortAttr: sortAttr,
+      orderType: orderType
+    });
+
+    this.loadData();
   },
   tapTabsDefault(e) {
     let id = e.currentTarget.dataset.id;
@@ -80,16 +106,30 @@ Page({
       }
     }
 
+    this.setData({
+      productName: productName,
+      productType: productType,
+      conditionText: conditionText,
+      platform: platform
+    })
+
+    this.loadData();
+  },
+
+  loadData: function() {
+    var that = this;
     wx.showLoading({
       title: "加载中"
     });
     wx.request({
       url: app.globalData.interfaceUrl + 'zc/list',
       data: {
-        nameOrNum: productName,
-        productType: productType,
-        conditionText: conditionText,
-        platform: platform
+        nameOrNum: that.data.productName,
+        productType: that.data.productType,
+        conditionText: that.data.conditionText,
+        platform: that.data.platform,
+        sort: that.data.sortAttr,
+        order: that.data.orderType
       },
       header: {
         'content-type': 'application/json'

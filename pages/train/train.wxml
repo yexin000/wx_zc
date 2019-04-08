@@ -42,6 +42,9 @@
                     <view class="tabs-item">
                         <view class="tabs-title {{tabIndex=='09'?'current':''}}" bindtap="tapTabsDefault" data-id="09">其他</view>
                     </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='10'?'current':''}}" bindtap="tapTabsDefault" data-id="10">检修市场</view>
+                    </view>
                 </view>
             </scroll-view>
             <view class="tabs-content">
@@ -217,6 +220,25 @@
                   </view>
                 </view>
                 <view wx:if="{{tabIndex == '09'}}">
+                  <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
+                    <view class="example-content" wx:if="{{tabIndex == traintype.traintype}}" >
+                      <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+                        <view class="list-logo">
+                            <image style="width:25rpx;" src="../images/list-header.png" />
+                        </view>
+                        <view class="train-list-desc">{{traintype.text}}</view>
+                      </view>
+                      <view class="example-content">
+                        <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
+                          <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view wx:if="{{tabIndex == '10'}}">
                   <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
                     <view class="example-content" wx:if="{{tabIndex == traintype.traintype}}" >
                       <view class="wexui-list list-active" style="background-color:#f1f1f1;">
