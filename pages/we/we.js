@@ -40,11 +40,46 @@ Page({
     name: "",
     phone: "",
     email: "",
-    content: ""
+    content: "",
+    showIntroduce: false,
+    showHonor: false,
+    showContact: false,
+    showMessage: false,
+    showTeam: false,
   },
   toMoreVideo: function() {
     wx.navigateTo({
       url: '../moreVideo/moreVideo'
+    })
+  },
+  changeIntroduce: function() {
+    var value = this.data.showIntroduce;
+    this.setData({
+      showIntroduce: !value
+    })
+  },
+  changeHonor: function () {
+    var value = this.data.showHonor;
+    this.setData({
+      showHonor: !value
+    })
+  },
+  changeContact: function () {
+    var value = this.data.showContact;
+    this.setData({
+      showContact: !value
+    })
+  },
+  changeMessage: function () {
+    var value = this.data.showMessage;
+    this.setData({
+      showMessage: !value
+    })
+  },
+  changeTeam: function () {
+    var value = this.data.showTeam;
+    this.setData({
+      showTeam: !value
     })
   },
   phoneCall: function(e) {

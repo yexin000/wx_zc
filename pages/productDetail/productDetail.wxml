@@ -23,7 +23,7 @@
             <view class="wexui-list">
               <view class="list-content">结构形式:{{productInfo.structtype}}</view>
             </view>
-            <view class="wexui-article center margin-top-15">
+            <view wx:if="{{productInfo.producttype != '26'}}" class="wexui-article center margin-top-15">
               <view class="h5">性能参数</view>
               <view class="wexui-list" wx:if="{{productInfo.wj != null}}">
                 <view wx:if="{{productInfo.producttype == '24'}}" style="text-align:left;padding-left:10%;" class="list-content">外径D/mm</view>
@@ -308,16 +308,26 @@
                 <view class="list-content">{{productInfo.jqyxgd}}</view>
               </view>
             </view>
-            <view class="wexui-article center">
+            <view wx:if="{{productInfo.producttype != '26'}}" class="wexui-article center">
               <view class="h5">产品描述</view>
-            <view class="article-section">
-                <view class="article-section-content">
-                    <view class="article-section-text">
-                        {{productInfo.remark}}
-                    </view>
-                </view>
+              <view class="article-section">
+                  <view class="article-section-content">
+                      <view class="article-section-text">
+                          {{productInfo.remark}}
+                      </view>
+                  </view>
+              </view>
             </view>
-          </view>
+            <view wx:else class="wexui-article center">
+              <view class="h5">检修详情</view>
+              <view class="article-section">
+                  <view class="article-section-content">
+                      <view class="article-section-text">
+                          {{productInfo.remark}}
+                      </view>
+                  </view>
+              </view>
+            </view>
         </view>
       </view>
     </view>

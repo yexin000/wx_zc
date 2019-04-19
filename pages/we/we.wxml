@@ -1,28 +1,28 @@
 <view class="container" style="padding:0;">
-  <view class="index" style="background-color:white;">
+  <view class="index" style="background-color:white;min-width:100%;">
     <view class="example-content" style="margin-top:20rpx;">
-      <view class="wexui-list wexui-list-my list-active">
+      <view class="wexui-list wexui-list-my list-active" bindtap="changeIntroduce">
           <view class="list-logo">
               <image style="width:25rpx;" src="../images/list-header.png" />
           </view>
-          <view class="list-desc">公司简介</view><view class="list-desc" style="margin-left:55%;" bindtap="toMoreVideo">更多介绍></view>
+          <view class="list-desc">公司简介</view><view class="list-desc" style="margin-left:55%;" catchtap="toMoreVideo">更多介绍></view>
       </view>
-      <video id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/advertise_video.mp4" binderror="videoErrorCallback" controls poster="https://guidaogouwuche.com/wx/storage/fetch/sdxc_cover.jpg"></video>
-      <view class="wexui-article">
+      <video wx:if="{{showIntroduce}}" id="myVideo" style="width: 90%;margin-left:5%;margin-right:5%;" src="https://guidaogouwuche.com/wx/storage/fetch/advertise_video.mp4" binderror="videoErrorCallback" controls poster="https://guidaogouwuche.com/wx/storage/fetch/sdxc_cover.jpg"></video>
+      <view class="wexui-article" wx:if="{{showIntroduce}}">
         <view class="article-section">
             <view class="article-section-content">
                 <view class="article-section-text">  　　株洲时代新材料科技股份有限公司是中国中车旗下株洲电力机车研究所有限公司控股的A股上市企业，是中国中车的新材料产业平台。始建于1984年，其前身为原铁道部株洲电力机车研究所橡胶试验室，2002年12月在上海证券交易所上市。2014年9月，成功并购德国ZF集团旗下橡胶与塑料业务(博戈公司)。根据美国《橡胶和塑料新闻》周刊披露，时代新材已成为全国第一、全球第15名的非轮胎橡胶制品生产商。</view>
             </view>
         </view>
       </view>
-      <view class="wexui-list wexui-list-my list-active">
+      <view class="wexui-list wexui-list-my list-active" bindtap="changeHonor">
           <view class="list-logo">
               <image style="width:25rpx;" src="../images/list-header.png" />
           </view>
           <view class="list-desc">公司荣誉</view>
       </view>
-      <view class="we-title">公司获奖情况（部分）</view>
-      <view class="example-content">
+      <view class="we-title" wx:if="{{showHonor}}">公司获奖情况（部分）</view>
+      <view class="example-content" wx:if="{{showHonor}}">
         <view wx:for="{{awards}}" wx:for-index="idx" wx:for-item="award">
           <view class="wexui-panel">
                 <view class="panel-content">
@@ -32,14 +32,20 @@
           </view>
         </view>
       </view>
-      <view class="wexui-article">
+      <view class="wexui-list wexui-list-my list-active" bindtap="changeContact">
+          <view class="list-logo">
+              <image style="width:25rpx;" src="../images/list-header.png" />
+          </view>
+          <view class="list-desc">联系方式</view>
+      </view>
+      <view class="wexui-article" wx:if="{{showContact}}">
         <view class="article-section">
             <view class="article-section-image">
                 <image src="https://guidaogouwuche.com/wx/storage/fetch/we-company.png"  />
             </view>
         </view>
       </view>
-      <view class="example-content">
+      <view class="example-content" wx:if="{{showContact}}">
         <view class="wexui-list wexui-list-my">
             <view class="we-list-logo we-list-addr">
                 <image src="/pages/images/we-addr.png" />
@@ -75,14 +81,14 @@
         </view>
       </view>
     </view>
-    <view class="wexui-list wexui-list-my list-active">
+    <view class="wexui-list wexui-list-my list-active" bindtap="changeMessage">
         <view class="list-logo">
             <image style="width:25rpx;" src="../images/list-header.png" />
         </view>
         <view class="list-desc">客户留言</view>
     </view>
   </view>
-  <form bindsubmit="submitMessage" style="width: 100%;">
+  <form bindsubmit="submitMessage" style="width: 100%;" wx:if="{{showMessage}}">
       <view class="example-content">
         <view class="input-group margin-top-10">
             <label class="input-label">单位</label>
@@ -106,20 +112,20 @@
         <button class="btn btn-success size-big btn-block" style="line-height:1.8;" formType="submit">提交</button>
       </view>
     </form>
-    <view class="wexui-list wexui-list-my list-active wexui-list-my-team">
+    <view class="wexui-list wexui-list-my list-active wexui-list-my-team" bindtap="changeTeam">
         <view class="list-logo">
             <image style="width:25rpx;" src="../images/list-header.png" />
         </view>
         <view class="list-desc">项目团队信息</view>
-        <button class="btn btn-success size-small btn-block" style="line-height:0.8;margin-top:0rpx;margin-left:45%;" bindtap='toTeamPage'>查看详情</button>
+        <button class="btn btn-success size-small btn-block" style="line-height:0.8;margin-top:0rpx;margin-left:45%;" catchtap='toTeamPage'>查看详情</button>
     </view>
-    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总策划：刘文松</view>
     </view>
-    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总指导：林胜、黄友剑</view>
     </view>
-    <view class="wexui-list wexui-list-my wexui-list-my-team-desc">
+    <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总执行：张运珍</view>
     </view>
     <view class="wexui-footer" style='margin-top:10rpx;margin-bottom:10rpx;'>

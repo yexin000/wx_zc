@@ -37,6 +37,7 @@ Page({
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype22.png', producttype: '02', text: '橡胶垫', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype14.png', producttype: '03', text: '止挡', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype15.png', producttype: '10', text: 'V形簧', parenttype: '01' },
+      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype33.png', producttype: '26', text: '检修产品', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype23.png', producttype: '11', text: '其他悬挂', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype24.png', producttype: '23', text: '叠簧式齿轮箱弹性支撑', parenttype: '02' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype25.png', producttype: '24', text: '轴瓦式齿轮箱弹性支撑', parenttype: '02' },
@@ -46,8 +47,7 @@ Page({
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype29.png', producttype: '16', text: '弹性垫板', parenttype: '03' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype30.png', producttype: '17', text: '套靴', parenttype: '03' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype31.png', producttype: '20', text: '阻尼器', parenttype: '04' },
-      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype32.png', producttype: '21', text: '止水产品', parenttype: '04' },
-      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype23.png', producttype: '26', text: '检修产品', parenttype: '01' }
+      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype32.png', producttype: '21', text: '止水产品', parenttype: '04' }
     ]
   },
   tapTabsDefault(e) {

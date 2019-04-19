@@ -597,30 +597,30 @@
                     <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
                     <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
                   </view>
-                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度A
-                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
-                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
-                  </view>
-                  <view class="flex-item table-header" data-attr="kd" bindtap="orderChange">宽度B
-                    <image wx:if="{{sortAttr == 'kd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
-                    <image wx:if="{{sortAttr == 'kd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
-                  </view>
-                  <view class="flex-item table-header" data-attr="gd" bindtap="orderChange">高度C
-                    <image wx:if="{{sortAttr == 'gd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
-                    <image wx:if="{{sortAttr == 'gd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
-                  </view>
                   <view class="flex-item table-header" data-attr="sxczl" bindtap="orderChange">竖向承载力
                     <image wx:if="{{sortAttr == 'sxczl' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
                     <image wx:if="{{sortAttr == 'sxczl' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="spczl" bindtap="orderChange">水平承载力
+                    <image wx:if="{{sortAttr == 'spczl' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'spczl' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="dfz" bindtap="orderChange">动峰值
+                    <image wx:if="{{sortAttr == 'dfz' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'dfz' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="wdwy" bindtap="orderChange">温度位移
+                    <image wx:if="{{sortAttr == 'wdwy' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'wdwy' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
                   </view>
               </view>
               <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
                 <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
                     <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
-                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
-                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.sxczl}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.sxczl}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.spczl}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.dfz}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wdwy}}</view>
                 </view>
               </view>
             </view>

@@ -27,8 +27,8 @@ Page({
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/product06.png', traintype: '06', text: '风电', des: '车型概述' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/product07.png', traintype: '07', text: '轨道线路', des: '车型概述' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/product08.png', traintype: '08', text: '桥建', des: '车型概述' },
-      { img: 'https://guidaogouwuche.com/wx/storage/fetch/product09.png', traintype: '09', text: '其他', des: '车型概述' },
-      { img: 'https://guidaogouwuche.com/wx/storage/fetch/product09.png', traintype: '10', text: '检修市场', des: '车型概述' }
+      { img: 'https://guidaogouwuche.com/wx/storage/fetch/product10.png', traintype: '10', text: '检修市场', des: '车型概述' },
+      { img: 'https://guidaogouwuche.com/wx/storage/fetch/product09.png', traintype: '09', text: '其他', des: '车型概述' }
     ], 
     producttypes: [
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype1.png', producttype: '04', text: '空气弹簧', parenttype: '01' },
@@ -46,8 +46,8 @@ Page({
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype22.png', producttype: '02', text: '橡胶垫', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype14.png', producttype: '03', text: '止挡', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype15.png', producttype: '10', text: 'V形簧', parenttype: '01' },
+      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype33.png', producttype: '26', text: '检修产品', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype23.png', producttype: '11', text: '其他悬挂', parenttype: '01' },
-      { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype23.png', producttype: '26', text: '检修产品', parenttype: '01' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype24.png', producttype: '23', text: '叠簧式齿轮箱弹性支撑', parenttype: '02' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype25.png', producttype: '24', text: '轴瓦式齿轮箱弹性支撑', parenttype: '02' },
       { img: 'https://guidaogouwuche.com/wx/storage/fetch/producttype26.png', producttype: '25', text: '其他风电产品', parenttype: '02' },
