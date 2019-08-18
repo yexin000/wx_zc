@@ -837,6 +837,301 @@
                 </view>
               </view>
             </view>
+            <view wx:if="{{formType == '27'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="gd" bindtap="orderChange">高度A
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="azlwgg" bindtap="orderChange">螺纹规格
+                    <image wx:if="{{sortAttr == 'azlwgg' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'azlwgg' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cxgd" bindtap="orderChange">垂向刚度
+                    <image wx:if="{{sortAttr == 'cxgd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cxgd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.azlwgg}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cxgd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+                </view>
+              </view>
+            </view>
+
+            <view wx:if="{{formType == '28'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度A/mm
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kd" bindtap="orderChange">宽度B/mm
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="gd" bindtap="orderChange">高度(厚度)C/mm
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="bj" bindtap="orderChange">半径D/mm
+                    <image wx:if="{{sortAttr == 'bj' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'bj' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.bj}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '29'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度L/mm
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kd" bindtap="orderChange">宽度W/mm
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="gd" bindtap="orderChange">高度H/mm
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'gd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gd}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '30'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度/直径/mm
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kd" bindtap="orderChange">宽度W/mm
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="hd" bindtap="orderChange">厚度T/mm
+                    <image wx:if="{{sortAttr == 'hd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'hd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="md" bindtap="orderChange">密度/(g/cm3)
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.hd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.md}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '31'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cail" bindtap="orderChange">材料
+                  </view>
+                  <view class="flex-item table-header" data-attr="structtype" bindtap="orderChange">结构形式
+                  </view>
+                  <view class="flex-item table-header" data-attr="fhgf" bindtap="orderChange">防火规范
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cail}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.structtype}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.fhgf}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '32'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="xingh" bindtap="orderChange">型号
+                    <image wx:if="{{sortAttr == 'xingh' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'xingh' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="hda" bindtap="orderChange">厚度A/mm
+                    <image wx:if="{{sortAttr == 'hda' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'hda' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="hdb" bindtap="orderChange">厚度B/mm
+                    <image wx:if="{{sortAttr == 'hdb' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'hdb' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="canb" bindtap="orderChange">残变/mm
+                    <image wx:if="{{sortAttr == 'canb' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'canb' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.xingh}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.hda}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.hdb}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.canb}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '33'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="gjbhd" bindtap="orderChange">轨距边厚度A/mm
+                    <image wx:if="{{sortAttr == 'gjbhd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'gjbhd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kybhd" bindtap="orderChange">扣压边厚度B/mm
+                    <image wx:if="{{sortAttr == 'kybhd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kybhd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="yingd" bindtap="orderChange">硬度C/HRR
+                    <image wx:if="{{sortAttr == 'yingd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'yingd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" bindtap="orderChange">
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.gjbhd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kybhd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.yingd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;"></view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '34'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;margin-top:20rpx;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" style="border-right:none;" data-attr="xingh" bindtap="orderChange">型号
+                    <image wx:if="{{sortAttr == 'xingh' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'xingh' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.xingh}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '35'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度/mm
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="nj" bindtap="orderChange">内径/mm
+                    <image wx:if="{{sortAttr == 'nj' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'nj' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="wj" bindtap="orderChange">外径/mm
+                    <image wx:if="{{sortAttr == 'wj' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'wj' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kbl" bindtap="orderChange">抗拔力/KN
+                    <image wx:if="{{sortAttr == 'kbl' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kbl' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.nj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.wj}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kbl}}</view>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{formType == '36'}}" class="example-content">
+              <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;">
+                  <view class="flex-item table-header" style="flex:2;" data-attr="productnum" bindtap="orderChange">物资编号
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'productnum' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="cd" bindtap="orderChange">长度/mm
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'cd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="kd" bindtap="orderChange">宽度/mm
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'kd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="hd" bindtap="orderChange">厚度/mm
+                    <image wx:if="{{sortAttr == 'hd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'hd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+                  <view class="flex-item table-header" data-attr="yingd" bindtap="orderChange">硬度/邵氏D
+                    <image wx:if="{{sortAttr == 'yingd' && orderType == 'asc'}}" src="/pages/images/icon-up.png" class="sort-icon-asc"/>
+                    <image wx:if="{{sortAttr == 'yingd' && orderType == 'desc'}}" src="/pages/images/icon-down.png" class="sort-icon-desc"/>
+                  </view>
+              </view>
+              <view wx:if="{{tabIndex=='00' || tabIndex==productItem.platform}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem">
+                <view class="wexui-flex" style="height:100rpx;border-bottom: solid 1rpx #8e8e90;display: flex;justify-content:center;align-items:stretch;" data-productid="{{productItem.id}}" bindtap="toProductDetail">
+                    <view class="flex-item" style="flex:2;border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;text-decoration: underline;">{{productItem.productnum}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.cd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.kd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.hd}}</view>
+                    <view class="flex-item" style="border-right: solid 1rpx #8e8e90;font-size:25rpx;display: flex;justify-content:center;align-items:center;">{{productItem.yingd}}</view>
+                </view>
+              </view>
+            </view>
           </view>
         </view>
       </view>

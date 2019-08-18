@@ -57,6 +57,9 @@
                     <view class="tabs-item">
                         <view class="tabs-title tabs-index {{tabIndex=='02'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="02" style='color:black;'>风电</view>
                     </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title tabs-index {{tabIndex=='05'?'indexcurrent':''}}" bindtap="tapTabsDefault" data-id="05" style='color:black;'>复合材料</view>
+                    </view>
                 </view>
             </scroll-view>
             <view class="tabs-content">
@@ -96,11 +99,11 @@
                     </view>
                   </view>
                 </view>
-                <view wx:if="{{tabIndex == '5'}}">
+                <view wx:if="{{tabIndex == '05'}}">
                   <view class="example-content">
                     <view class="wexui-grid-four" style="margin-left:20rpx;margin-right:20rpx;">
                       <view wx:for="{{producttypes}}" wx:for-index="idx" wx:for-item="producttype">
-                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
+                        <view class="grid-item" data-producttype="{{producttype.producttype}}" bindtap="toProductSearch" wx:if="{{producttype.parenttype == '05'}}"><image src="{{producttype.img}}" class="grid-item-icon"/><view class="grid-item-label">{{producttype.text}}</view></view>
                       </view>
                     </view>
                   </view>

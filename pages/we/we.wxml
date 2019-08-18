@@ -41,7 +41,7 @@
       <view class="wexui-article" wx:if="{{showContact}}">
         <view class="article-section">
             <view class="article-section-image">
-                <image src="https://guidaogouwuche.com/wx/storage/fetch/we-company.png"  />
+                <image src="/pages/images/we-company.png"  />
             </view>
         </view>
       </view>
@@ -116,10 +116,10 @@
         <view class="list-logo">
             <image style="width:25rpx;" src="../images/list-header.png" />
         </view>
-        <view class="list-desc">项目团队信息</view>
-        <button class="btn btn-success size-small btn-block" style="line-height:0.8;margin-top:0rpx;margin-left:45%;" catchtap='toTeamPage'>查看详情</button>
+        <view class="list-desc">项目团队</view>
+        <button class="btn btn-success size-small btn-block" style="line-height:0.8;margin-top:0rpx;margin-left:50%;" catchtap='toTeamPage'>查看详情</button>
     </view>
-    <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
+    <!--<view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总策划：刘文松</view>
     </view>
     <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
@@ -127,7 +127,7 @@
     </view>
     <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总执行：张运珍</view>
-    </view>
+    </view>-->
     <view class="wexui-footer" style='margin-top:10rpx;margin-bottom:10rpx;'>
         <view class="footer-text">株洲时代新材料科技股份有限公司·轨道交通事业部</view>
         <view class="footer-text">版权所有，违者必究</view>

@@ -27,11 +27,13 @@
               <view class="h5">性能参数</view>
               <view class="wexui-list" wx:if="{{productInfo.wj != null}}">
                 <view wx:if="{{productInfo.producttype == '24'}}" style="text-align:left;padding-left:10%;" class="list-content">外径D/mm</view>
+                <view wx:if="{{productInfo.producttype == '35' || productInfo.producttype == '36'}}" style="text-align:left;padding-left:10%;" class="list-content">外径/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">外径A/mm</view>
                 <view class="list-content">{{productInfo.wj}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.nj != null}}">
                 <view class="list-content" wx:if="{{productInfo.producttype == '01'}}" style="text-align:left;padding-left:10%;">内径B/mm</view>
+                <view class="list-content" wx:elif="{{productInfo.producttype == '35' || productInfo.producttype == '36'}}" style="text-align:left;padding-left:10%;">内径/mm</view>
                 <view class="list-content" wx:else style="text-align:left;padding-left:10%;">内径d/mm</view>
                 <view class="list-content">{{productInfo.nj}}</view>
               </view>
@@ -79,11 +81,17 @@
                 <view class="list-content" style="text-align:left;padding-left:10%;">压装力/kN</view>
                 <view class="list-content">{{productInfo.yzl}}</view>
               </view>
+              <view class="wexui-list" wx:if="{{productInfo.cail != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">材料</view>
+                <view class="list-content">{{productInfo.cail}}</view>
+              </view>
               <view class="wexui-list" wx:if="{{productInfo.cd != null}}">
-                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '15' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '18' || productInfo.producttype == '19' || productInfo.producttype == '21' || productInfo.producttype == '22' || productInfo.producttype == '23' || productInfo.producttype == '25'}}" class="list-content" style="text-align:left;padding-left:10%;">长度A/mm</view>
+                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '15' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '18' || productInfo.producttype == '19' || productInfo.producttype == '21' || productInfo.producttype == '22' || productInfo.producttype == '23' || productInfo.producttype == '25' || productInfo.producttype == '28' || productInfo.producttype == '31'}}" class="list-content" style="text-align:left;padding-left:10%;">长度A/mm</view>
                 <view wx:elif="{{productInfo.producttype == '07'}}" class="list-content" style="text-align:left;padding-left:10%;">长度L1/mm</view>
-                <view wx:elif="{{productInfo.producttype == '24'}}" class="list-content" style="text-align:left;padding-left:10%;">长度L/mm</view>
+                <view wx:elif="{{productInfo.producttype == '24' || productInfo.producttype == '29'}}" class="list-content" style="text-align:left;padding-left:10%;">长度L/mm</view>
+                <view wx:elif="{{productInfo.producttype == '24' || productInfo.producttype == '30'}}" class="list-content" style="text-align:left;padding-left:10%;">长度/直径/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">A/mm</view>
+                <view wx:elif="{{productInfo.producttype == '35' || productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">长度/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">长度B/mm</view>
                 <view class="list-content">{{productInfo.cd}}</view>
               </view>
@@ -91,6 +99,8 @@
                 <view wx:if="{{productInfo.producttype == '07'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度L2/mm</view>
                 <view wx:elif="{{productInfo.producttype == '23'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度C/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">B/mm</view>
+                <view wx:elif="{{productInfo.producttype == '29' || productInfo.producttype == '30'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度W/mm</view>
+                <view wx:elif="{{productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">宽度B/mm</view>
                 <view class="list-content">{{productInfo.kd}}</view>
               </view>
@@ -99,6 +109,8 @@
                 <view wx:elif="{{productInfo.producttype == '07'}}" class="list-content" style="text-align:left;padding-left:10%;">高度L3/mm</view>
                 <view wx:elif="{{productInfo.producttype == '22'}}" class="list-content" style="text-align:left;padding-left:10%;">高度A/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">C/mm</view>
+                <view wx:elif="{{productInfo.producttype == '28' || productInfo.producttype == '31'}}" class="list-content" style="text-align:left;padding-left:10%;">高度(厚度)C/mm</view>
+                <view wx:elif="{{productInfo.producttype == '29'}}" class="list-content" style="text-align:left;padding-left:10%;">高度H/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">高度B/mm</view>
                 <view class="list-content">{{productInfo.gd}}</view>
               </view>
@@ -106,6 +118,78 @@
                 <view class="list-content" style="text-align:left;padding-left:10%;">D/mm</view>
                 <view class="list-content">{{productInfo.vd}}</view>
               </view>
+              <view class="wexui-list" wx:if="{{productInfo.hd != null}}">
+                <view class="list-content" wx:if="{{productInfo.producttype == '36'}}" style="text-align:left;padding-left:10%;">厚度/mm</view>
+                <view class="list-content" wx:else style="text-align:left;padding-left:10%;">厚度T/mm</view>
+                <view class="list-content">{{productInfo.hd}}</view>
+              </view>
+
+              <view class="wexui-list" wx:if="{{productInfo.md != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">密度/(g/cm3)</view>
+                <view class="list-content">{{productInfo.md}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.lsqd != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">拉伸强度/MPa</view>
+                <view class="list-content">{{productInfo.lsqd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.dllsyb != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">断裂拉伸应变/%</view>
+                <view class="list-content">{{productInfo.dllsyb}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.lstxml != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">拉伸弹性模量/MPa</view>
+                <view class="list-content">{{productInfo.lstxml}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.qyhyd != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">球压痕硬度/MPa</view>
+                <view class="list-content">{{productInfo.qyhyd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.csjmcxs != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">初始静摩擦系数μst/</view>
+                <view class="list-content">{{productInfo.csjmcxs}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.xmhl != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">线磨耗率（50km）/（μm/km）</view>
+                <view class="list-content">{{productInfo.xmhl}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.fhgf != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">防火规范</view>
+                <view class="list-content">{{productInfo.fhgf}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.xingh != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">型号</view>
+                <view class="list-content">{{productInfo.xingh}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.hda != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">厚度A/mm</view>
+                <view class="list-content">{{productInfo.hda}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.hdb != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">厚度B/mm</view>
+                <view class="list-content">{{productInfo.hdb}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.canb != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">残变/mm</view>
+                <view class="list-content">{{productInfo.canb}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.gjbhd != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">轨距边厚度A/mm</view>
+                <view class="list-content">{{productInfo.gjbhd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.kybhd != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">扣压边厚度B/mm</view>
+                <view class="list-content">{{productInfo.kybhd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.yingd != null}}">
+                <view class="list-content" wx:if="{{productInfo.producttype == '36'}}" style="text-align:left;padding-left:10%;">硬度/邵氏D</view>
+                <view class="list-content" wx:else style="text-align:left;padding-left:10%;">硬度C/HRR</view>
+                <view class="list-content">{{productInfo.yingd}}</view>
+              </view>
+              <view class="wexui-list" wx:if="{{productInfo.kbl != null}}">
+                <view class="list-content" style="text-align:left;padding-left:10%;">抗拔力/KN</view>
+                <view class="list-content">{{productInfo.kbl}}</view>
+              </view>
+
               <view class="wexui-list" wx:if="{{productInfo.ve != null}}">
                 <view class="list-content" style="text-align:left;padding-left:10%;">E/mm</view>
                 <view class="list-content">{{productInfo.ve}}</view>

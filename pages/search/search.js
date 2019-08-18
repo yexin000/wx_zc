@@ -13,7 +13,9 @@ Page({
         { fatherTypeId: "1", typename: "轨道车辆"},
         { fatherTypeId: "2", typename: "线路"},
         { fatherTypeId: "3", typename: "桥建"},
-        { fatherTypeId: "4", typename: "风电"}],
+        { fatherTypeId: "4", typename: "风电" },
+        { fatherTypeId: "5", typename: "复合材料" }
+        ],
       []
     ],
     traintypes : [
@@ -86,6 +88,27 @@ Page({
     zdznxs: null,
     zxsdzs: null,
     zdsdzs: null,
+
+    zxzj: null,
+    zdzj: null,
+    zxmd: null,
+    zdmd: null,
+    zxhda: null,
+    zdhda: null,
+    zxhdb: null,
+    zdhdb: null,
+    zxcanb: null,
+    zdcanb: null,
+    zxgjbhd: null,
+    zdgjbhd: null,
+    zxkybhd: null,
+    zdkybhd: null,
+    zxyingd: null,
+    zdyingd: null,
+    zxkbl: null,
+    zdkbl: null,
+    zxhd: null,
+    zdhd: null,
     checkedTrainType : "",
     checkedTrainTypes: []
   },
@@ -382,7 +405,7 @@ Page({
         } else if (this.data.productType == '10') {
           conditionText += "vxjd" + "#" + this.data.zxvxjd + "#" + this.data.zdvxjd + "|"
           conditionText += "cxgd" + "#" + this.data.zxcxgd + "#" + this.data.zdcxgd + "|"
-        } else if (this.data.productType == '11' || this.data.productType == '12' || this.data.productType == '25' || this.data.productType == '18' || this.data.productType == '21') {
+        } else if (this.data.productType == '11' || this.data.productType == '12' || this.data.productType == '25' || this.data.productType == '18' || this.data.productType == '21' || this.data.productType == '28' || this.data.productType == '29') {
           conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
           conditionText += "kd" + "#" + this.data.zxkd + "#" + this.data.zdkd + "|"
           conditionText += "gd" + "#" + this.data.zxgd + "#" + this.data.zdgd + "|"
@@ -416,6 +439,25 @@ Page({
           conditionText += "znl" + "#" + this.data.zxznl + "#" + this.data.zdznl + "|"
           conditionText += "znxs" + "#" + this.data.zxznxs + "#" + this.data.zdznxs + "|"
           conditionText += "sdzs" + "#" + this.data.zxsdzs + "#" + this.data.zdsdzs + "|"
+        } else if (this.data.productType == '30') {
+          conditionText += "cd" + "#" + this.data.zxzj + "#" + this.data.zdzj + "|"
+          conditionText += "md" + "#" + this.data.zxmd + "#" + this.data.zdmd + "|"
+        } else if (this.data.productType == '32') {
+          conditionText += "hda" + "#" + this.data.zxhda + "#" + this.data.zdhda + "|"
+          conditionText += "hdb" + "#" + this.data.zxhdb + "#" + this.data.zdhdb + "|"
+          conditionText += "canb" + "#" + this.data.zxcanb + "#" + this.data.zdcanb + "|"
+        } else if (this.data.productType == '33') {
+          conditionText += "gjbhd" + "#" + this.data.zxgjbhd + "#" + this.data.zdgjbhd + "|"
+          conditionText += "kybhd" + "#" + this.data.zxkybhd + "#" + this.data.zdkybhd + "|"
+          conditionText += "yingd" + "#" + this.data.zxyingd + "#" + this.data.zdyingd + "|"
+        } else if (this.data.productType == '35') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "nj" + "#" + this.data.zxnj + "#" + this.data.zdnj + "|"
+          conditionText += "kbl" + "#" + this.data.zxkbl + "#" + this.data.zdkbl + "|"
+        } else if (this.data.productType == '36') {
+          conditionText += "cd" + "#" + this.data.zxcd + "#" + this.data.zdcd + "|"
+          conditionText += "kd" + "#" + this.data.zxkd + "#" + this.data.zdkd + "|"
+          conditionText += "hd" + "#" + this.data.zxhd + "#" + this.data.zdhd + "|"
         } 
       }
     
@@ -933,6 +975,126 @@ Page({
   zdsdzsInput: function (e) {
     this.setData({
       zdsdzs: e.detail.value
+    })
+  },
+
+  zxzjInput: function (e) {
+    this.setData({
+      zxzj: e.detail.value
+    })
+  },
+
+  zdzjInput: function (e) {
+    this.setData({
+      zdzj: e.detail.value
+    })
+  },
+
+  zxmdInput: function (e) {
+    this.setData({
+      zxmd: e.detail.value
+    })
+  },
+
+  zdmdInput: function (e) {
+    this.setData({
+      zdmd: e.detail.value
+    })
+  },
+
+  zxhdaInput: function (e) {
+    this.setData({
+      zxhda: e.detail.value
+    })
+  },
+
+  zdhdaInput: function (e) {
+    this.setData({
+      zdhda: e.detail.value
+    })
+  },
+
+  zxhdbInput: function (e) {
+    this.setData({
+      zxhdb: e.detail.value
+    })
+  },
+
+  zdhdbInput: function (e) {
+    this.setData({
+      zdhdb: e.detail.value
+    })
+  },
+
+  zxcanbInput: function (e) {
+    this.setData({
+      zxcanb: e.detail.value
+    })
+  },
+
+  zdcanbInput: function (e) {
+    this.setData({
+      zdcanb: e.detail.value
+    })
+  },
+
+  zxgjbhdInput: function (e) {
+    this.setData({
+      zxgjbhd: e.detail.value
+    })
+  },
+
+  zdgjbhdInput: function (e) {
+    this.setData({
+      zdgjbhd: e.detail.value
+    })
+  },
+
+  zxkybhdInput: function (e) {
+    this.setData({
+      zxkybhd: e.detail.value
+    })
+  },
+
+  zdkybhdInput: function (e) {
+    this.setData({
+      zdkybhd: e.detail.value
+    })
+  },
+
+  zxyingdInput: function (e) {
+    this.setData({
+      zxyingd: e.detail.value
+    })
+  },
+
+  zdyingdInput: function (e) {
+    this.setData({
+      zdyingd: e.detail.value
+    })
+  },
+
+  zxkblInput: function (e) {
+    this.setData({
+      zxkbl: e.detail.value
+    })
+  },
+
+  zdkblInput: function (e) {
+    this.setData({
+      zdkbl: e.detail.value
+    })
+  },
+
+  zxhdInput: function (e) {
+    this.setData({
+      zxhd: e.detail.value
+    })
+  },
+
+  zdhdInput: function (e) {
+    this.setData({
+      zdhd: e.detail.value
     })
   },
 
