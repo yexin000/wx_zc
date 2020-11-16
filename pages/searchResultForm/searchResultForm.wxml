@@ -15,10 +15,16 @@
                       <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
                   </view>
                   <view class="tabs-item">
-                      <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">客车(动车组)</view>
+                      <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">动车组</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='12'?'current':''}}" bindtap="tapTabsDefault" data-id="12">客车</view>
                   </view>
                   <view class="tabs-item">
                       <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">机车</view>
+                  </view>
+                  <view class="tabs-item">
+                      <view class="tabs-title {{tabIndex=='11'?'current':''}}" bindtap="tapTabsDefault" data-id="11">货车</view>
                   </view>
                   <view class="tabs-item">
                       <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">地铁</view>

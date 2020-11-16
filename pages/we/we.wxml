@@ -41,7 +41,7 @@
       <view class="wexui-article" wx:if="{{showContact}}">
         <view class="article-section">
             <view class="article-section-image">
-                <image src="/pages/images/we-company.png"  />
+                <image src="/pages/images/we-company.jpg"  />
             </view>
         </view>
       </view>
@@ -128,6 +128,9 @@
     <view class="wexui-list wexui-list-my wexui-list-my-team-desc" wx:if="{{showTeam}}">
       <view class="we-list-desc">总执行：张运珍</view>
     </view>-->
+    <view class="article-section-content center">
+        <image class="article-section-image" style="width:400rpx;heigth:400rpx;" src="/pages/images/zc_qcode.jpg" data-src="/pages/images/zc_qcode.jpg" mode="aspectFit"></image>
+    </view>
     <view class="wexui-footer" style='margin-top:10rpx;margin-bottom:10rpx;'>
         <view class="footer-text">株洲时代新材料科技股份有限公司·轨道交通事业部</view>
         <view class="footer-text">版权所有，违者必究</view>

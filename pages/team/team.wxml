@@ -5,7 +5,7 @@
       <view class="we-list-desc">总策划：　刘文松</view>
     </view>
     <view class="wexui-list wexui-list-my wexui-list-my-team-info">
-      <view class="we-list-desc">总指导：　林胜、黄友剑</view>
+      <view class="we-list-desc">总指导：　林胜、邓娇、黄友剑</view>
     </view>
     <view class="wexui-list wexui-list-my wexui-list-my-team-info">
       <view class="we-list-desc">总执行：　张运珍</view>
@@ -32,7 +32,7 @@
       <view class="we-list-desc" style='margin-left:160rpx;text-indent:-160rpx;'>版权所有：株洲时代新材料科技股份有限公司·轨道交通事业部</view>
     </view>
     <view class="wexui-list wexui-list-my wexui-list-my-team-info">
-      <view class="we-list-desc">版　　本：2019.1</view>
+      <view class="we-list-desc">版　　本：2.0</view>
     </view>
   </view>
 </view>

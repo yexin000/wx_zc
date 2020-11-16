@@ -86,12 +86,12 @@
                 <view class="list-content">{{productInfo.cail}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.cd != null}}">
-                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '15' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '18' || productInfo.producttype == '19' || productInfo.producttype == '21' || productInfo.producttype == '22' || productInfo.producttype == '23' || productInfo.producttype == '25' || productInfo.producttype == '28' || productInfo.producttype == '31'}}" class="list-content" style="text-align:left;padding-left:10%;">长度A/mm</view>
+                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '15' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '19' || productInfo.producttype == '21' || productInfo.producttype == '22' || productInfo.producttype == '23' || productInfo.producttype == '25' || productInfo.producttype == '28' || productInfo.producttype == '31'}}" class="list-content" style="text-align:left;padding-left:10%;">长度A/mm</view>
                 <view wx:elif="{{productInfo.producttype == '07'}}" class="list-content" style="text-align:left;padding-left:10%;">长度L1/mm</view>
                 <view wx:elif="{{productInfo.producttype == '24' || productInfo.producttype == '29'}}" class="list-content" style="text-align:left;padding-left:10%;">长度L/mm</view>
                 <view wx:elif="{{productInfo.producttype == '24' || productInfo.producttype == '30'}}" class="list-content" style="text-align:left;padding-left:10%;">长度/直径/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">A/mm</view>
-                <view wx:elif="{{productInfo.producttype == '35' || productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">长度/mm</view>
+                <view wx:elif="{{productInfo.producttype == '18' || productInfo.producttype == '35' || productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">长度/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">长度B/mm</view>
                 <view class="list-content">{{productInfo.cd}}</view>
               </view>
@@ -100,17 +100,18 @@
                 <view wx:elif="{{productInfo.producttype == '23'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度C/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">B/mm</view>
                 <view wx:elif="{{productInfo.producttype == '29' || productInfo.producttype == '30'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度W/mm</view>
-                <view wx:elif="{{productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度/mm</view>
+                <view wx:elif="{{productInfo.producttype == '18' || productInfo.producttype == '36'}}" class="list-content" style="text-align:left;padding-left:10%;">宽度/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">宽度B/mm</view>
                 <view class="list-content">{{productInfo.kd}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.gd != null}}">
-                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '18' || productInfo.producttype == '19' || productInfo.producttype == '21'}}" class="list-content" style="text-align:left;padding-left:10%;">高度C/mm</view>
+                <view wx:if="{{productInfo.producttype == '08' || productInfo.producttype == '11' || productInfo.producttype == '16' || productInfo.producttype == '17' || productInfo.producttype == '19' || productInfo.producttype == '21'}}" class="list-content" style="text-align:left;padding-left:10%;">高度C/mm</view>
                 <view wx:elif="{{productInfo.producttype == '07'}}" class="list-content" style="text-align:left;padding-left:10%;">高度L3/mm</view>
                 <view wx:elif="{{productInfo.producttype == '22'}}" class="list-content" style="text-align:left;padding-left:10%;">高度A/mm</view>
                 <view wx:elif="{{productInfo.producttype == '10'}}" class="list-content" style="text-align:left;padding-left:10%;">C/mm</view>
                 <view wx:elif="{{productInfo.producttype == '28' || productInfo.producttype == '31'}}" class="list-content" style="text-align:left;padding-left:10%;">高度(厚度)C/mm</view>
                 <view wx:elif="{{productInfo.producttype == '29'}}" class="list-content" style="text-align:left;padding-left:10%;">高度H/mm</view>
+                <view wx:elif="{{productInfo.producttype == '18'}}" class="list-content" style="text-align:left;padding-left:10%;">高度/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">高度B/mm</view>
                 <view class="list-content">{{productInfo.gd}}</view>
               </view>
@@ -259,7 +260,7 @@
                 <view class="list-content">{{productInfo.zdhz}}</view>
               </view>
               <view class="wexui-list" wx:if="{{productInfo.zhij != null}}">
-                <view wx:if="{{productInfo.producttype == '18'}}" class="list-content" style="text-align:left;padding-left:10%;">直径D/mm</view>
+                <view wx:if="{{productInfo.producttype == '18'}}" class="list-content" style="text-align:left;padding-left:10%;">直径/mm</view>
                 <view wx:else class="list-content" style="text-align:left;padding-left:10%;">直径B/mm</view>
                 <view class="list-content">{{productInfo.zhij}}</view>
               </view>

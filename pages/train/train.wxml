@@ -16,10 +16,16 @@
                         <view class="tabs-title {{tabIndex=='00'?'current':''}}" bindtap="tapTabsDefault" data-id="00">全部</view>
                     </view>
                     <view class="tabs-item">
-                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">客车(动车组)</view>
+                        <view class="tabs-title {{tabIndex=='01'?'current':''}}" bindtap="tapTabsDefault" data-id="01">动车组</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='12'?'current':''}}" bindtap="tapTabsDefault" data-id="12">客车</view>
                     </view>
                     <view class="tabs-item">
                         <view class="tabs-title {{tabIndex=='02'?'current':''}}" bindtap="tapTabsDefault" data-id="02">机车</view>
+                    </view>
+                    <view class="tabs-item">
+                        <view class="tabs-title {{tabIndex=='11'?'current':''}}" bindtap="tapTabsDefault" data-id="11">货车</view>
                     </view>
                     <view class="tabs-item">
                         <view class="tabs-title {{tabIndex=='03'?'current':''}}" bindtap="tapTabsDefault" data-id="03">地铁</view>
@@ -239,6 +245,44 @@
                   </view>
                 </view>
                 <view wx:if="{{tabIndex == '10'}}">
+                  <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
+                    <view class="example-content" wx:if="{{tabIndex == traintype.traintype}}" >
+                      <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+                        <view class="list-logo">
+                            <image style="width:25rpx;" src="../images/list-header.png" />
+                        </view>
+                        <view class="train-list-desc">{{traintype.text}}</view>
+                      </view>
+                      <view class="example-content">
+                        <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
+                          <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view wx:if="{{tabIndex == '11'}}">
+                  <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
+                    <view class="example-content" wx:if="{{tabIndex == traintype.traintype}}" >
+                      <view class="wexui-list list-active" style="background-color:#f1f1f1;">
+                        <view class="list-logo">
+                            <image style="width:25rpx;" src="../images/list-header.png" />
+                        </view>
+                        <view class="train-list-desc">{{traintype.text}}</view>
+                      </view>
+                      <view class="example-content">
+                        <view wx:for="{{trains}}" wx:for-index="trainIdx" wx:for-item="train">
+                          <view wx:if="{{train.traintype == traintype.traintype}}" class="wexui-list list-arrow">
+                            <view class="train-list-content" data-trainId="{{train.trainId}}" data-trainname="{{train.name}}" bindtap="toTrainProduct">{{train.name}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view wx:if="{{tabIndex == '12'}}">
                   <view wx:for="{{traintypes}}" wx:for-index="idx" wx:for-item="traintype">
                     <view class="example-content" wx:if="{{tabIndex == traintype.traintype}}" >
                       <view class="wexui-list list-active" style="background-color:#f1f1f1;">

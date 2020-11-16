@@ -19,8 +19,10 @@ Page({
       []
     ],
     traintypes : [
-      { traintype: "01", traintypeName: "客车(动车组)", checked: false},
+      { traintype: "01", traintypeName: "动车组", checked: false},
+      { traintype: "12", traintypeName: "客车", checked: false},
       { traintype: "02", traintypeName: "机车", checked: false},
+      { traintype: "11", traintypeName: "货车", checked: false},
       { traintype: "03", traintypeName: "地铁", checked: false},
       { traintype: "04", traintypeName: "LRV轻轨", checked: false},
       { traintype: "05", traintypeName: "磁悬浮", checked: false},
